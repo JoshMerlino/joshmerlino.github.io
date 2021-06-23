@@ -1,0 +1,65 @@
+@import "./one.less";
+@import "./markdown.less";
+@import "./progress.less";
+
+body {
+	margin: 0;
+	overflow-x: hidden;
+}
+
+.title h3 {
+	font-family: Roboto Mono;
+    display: inline-block;
+    padding: 12px 0;
+    margin: 0;
+    margin-bottom: 4px;
+    border-bottom: 2px solid var(--palette_primary_normal);
+    border-image-slice: 1;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    font-size: 20px;
+    font-weight: 500;
+	margin-left: 8px;
+	color: inherit;
+}
+
+.block p {
+	color: inherit;
+}
+
+.photon-toolbar i.waves-effect .waves-ripple {
+	background: fade(#fff, 20%);
+}
+
+footer.footer {
+	margin-top: 24px!important;
+}
+
+.DiscordInvite-wrapper {
+	padding: 8px;
+	@media (max-width: 600px) {
+		padding: 8px 3px
+	}
+}
+
+.photon-toolbar-spacer {
+	display: none;
+}
+
+#home-main-block .photon-toolbar {
+	position: absolute;
+	bottom: 0;
+	top: auto;
+	&.fixed {
+		top: 0;
+		bottom: auto;
+		position: fixed;
+	}
+}
+
+.badge {
+	border-radius: var(--shape);
+	background: var(--one-cyan);
+	color: #fff;
+	padding: 0 8px;
+}

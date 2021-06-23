@@ -8,6 +8,8 @@ import { ThemeProvider } from "photoncss/react";
 import "photoncss/dist/photon.css";
 import app from "./app";
 import $ from "jquery";
+import Footer from "./components/Footer";
+import Drawer from "./components/Drawer";
 
 // Get right router type for app
 const Router = location.protocol === "file:" ? HashRouter : BrowserRouter;
@@ -57,9 +59,11 @@ function Root(): JSX.Element {
 	return (
 		<ThemeProvider global>
 			<Router>
+				<Drawer/>
 				<main>
 					{ views.map(({ route, View, default: def }, key) => <Route key={key} path={route} exact={true} component={def || View}/> ) }
 				</main>
+				<Footer/>
 			</Router>
 		</ThemeProvider>
 	);
