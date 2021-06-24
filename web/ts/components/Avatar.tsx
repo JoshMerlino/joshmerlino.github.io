@@ -14,7 +14,7 @@ export default function Avatar(): JSX.Element {
 			  maxWidth: 192,
 			  margin: "0 auto",
 			  borderRadius: "50%",
-			  background: "#151515"
+			  background: "#00000015"
 		  }}
 		  alt=""
 		  onMouseEnter={ () => setState(1) }/>

@@ -1,6 +1,7 @@
 import Photon from "photoncss";
-import { Col, Container, Icon, Row, Toolbar, ToolbarActions } from "photoncss/react";
+import { Col, Container, Icon, Row, Toolbar, ToolbarActions, Button } from "photoncss/react";
 import ThemeSwitcher from "../ThemeSwitcher";
+import { Link } from "react-router-dom";
 import React, { useEffect } from "react";
 import DiscordInvite from "react-discord-invite";
 import Avatar from "../Avatar";
@@ -23,7 +24,7 @@ export default function HomeMain(): JSX.Element {
 	});
 
 	return (
-		<Block style={{ background: "#191919", color: "#fafafa", padding: "64px 0" }} id="home-main-block">
+		<Block id="home-main-block">
 			<Container>
 				<Row>
 					<Col md={4} lg={3} style={{ textAlign: "center" }}>
@@ -32,7 +33,7 @@ export default function HomeMain(): JSX.Element {
 					<Col sm={1}/>
 					<Col sm={12} md={8} lg={9} style={{ padding: "0px 8px" }}>
 						<div className="title">
-							<h3>{ APP_MANIFEST.name }</h3>
+							<h3 style={{ fontSize: 36 }}>{ APP_MANIFEST.name }</h3>
 						</div>
 						<h3 style={{ color: "inherit" }}>{ APP_MANIFEST.description }</h3>
 						<div className="DiscordInvite-wrapper">
@@ -40,6 +41,12 @@ export default function HomeMain(): JSX.Element {
 								<DiscordInvite guild="635938104775278602"/>
 							</div>
 						</div>
+						<Link to="/request-site">
+							<Button variant="raised" color="primary">Request a site</Button>
+						</Link>
+						<Link to="/my-work">
+							<Button variant="raised" color="primary">My work</Button>
+						</Link>
 					</Col>
 				</Row>
 			</Container>

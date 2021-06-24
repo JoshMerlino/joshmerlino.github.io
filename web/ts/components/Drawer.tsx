@@ -18,6 +18,8 @@ export default function Component(): JSX.Element {
 				}}/>
 			<hr/>
 			<DrawerEntry icon="home" to="/">Home</DrawerEntry>
+			<DrawerEntry icon="work" to="/my-work">My Work</DrawerEntry>
+			<DrawerEntry icon="add_circle_outline" to="/request-site">Request a Site</DrawerEntry>
 			<hr/>
 			<ListSubheader>Infrastructure</ListSubheader>
 			<DrawerEntry icon="api" to="https://joshm.us.to/docs/" external>API Documentation</DrawerEntry>

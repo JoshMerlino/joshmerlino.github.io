@@ -50,6 +50,9 @@ export default function View(): JSX.Element {
 					</Col>
 				</Row>
 
+				<hr/><br/>
+
+				<Markdown>{ require("../../../../README.md").default }</Markdown>
 			</Container>
 		</>
 	);

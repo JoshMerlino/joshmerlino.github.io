@@ -1,14 +1,18 @@
-@import "./one.less";
+@import "./theme.less";
 @import "./markdown.less";
 @import "./progress.less";
 
-body {
-	margin: 0;
+html {
 	overflow-x: hidden;
 }
 
+body {
+	margin: 0;
+	overflow: visible;
+}
+
 .title h3 {
-	font-family: Roboto Mono;
+	// font-family: Roboto Mono;
     display: inline-block;
     padding: 12px 0;
     margin: 0;
@@ -46,20 +50,30 @@ footer.footer {
 	display: none;
 }
 
-#home-main-block .photon-toolbar {
-	position: absolute;
-	bottom: 0;
-	top: auto;
-	&.fixed {
-		top: 0;
-		bottom: auto;
-		position: fixed;
+#home-main-block {
+	background: var(--palette_header_background);
+	color: var(--palette_header_text);
+	width: calc(100% + 8px);
+	padding: 64px 0;
+	.photon-toolbar {
+		position: absolute;
+		bottom: 0;
+		top: auto;
+		left: 0;
+		&.fixed {
+			top: 0;
+			bottom: auto;
+			position: fixed;
+		}
+		&:not(.fixed) {
+			width: calc(100% - 8px);
+		}
 	}
 }
 
 .badge {
 	border-radius: var(--shape);
-	background: var(--one-cyan);
-	color: #fff;
+	border: 1px solid var(--palette_sheet_background);
+	color: var(--palette_sheet_body);
 	padding: 0 8px;
 }

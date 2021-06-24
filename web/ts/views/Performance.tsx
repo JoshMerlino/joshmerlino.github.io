@@ -4,7 +4,6 @@ import ThemeSwitcher from "../components/ThemeSwitcher";
 import Masonry from "react-masonry-component";
 import Photon from "photoncss";
 import Performance from "../components/Performance";
-import { DrawerEntry } from "../components/DrawerEntry";
 
 export const route = "/performance";
 export const title = "Server Performance";
@@ -36,7 +35,7 @@ export function PerformanceMonitor(): JSX.Element | null {
 			<Row>
 
 				<br/><br/><br/><br/>
-				<h3 style={{ margin: 4 }}>Uptime: <span className="badge">{state.os.uptime_formatted}</span></h3>
+				<h3 style={{ margin: 4, fontFamily: "Roboto" }}>Uptime: <span className="badge">{state.os.uptime_formatted}</span></h3>
 
 				<Masonry>
 
@@ -117,7 +116,7 @@ export function PerformanceMonitor(): JSX.Element | null {
 							[ "Distro", `${state.os.distro} ${state.os.release}` ],
 							[ "Code Name", state.os.codename ],
 							null,
-							...Object.keys(state.os.software).map(software => [ software, state.os.software[software] ])
+							...Object.keys(state.os.software).map(software => [ software, state.os.software[software] ] as [ string, string ])
 					  ]}/>
 
   					<Performance
@@ -140,7 +139,7 @@ export default function View(): JSX.Element {
 		<>
 			<Toolbar variant="float">
 				<Icon onClick={ () => Photon.Drawer("#drawer").open() }>menu</Icon>
-				<ToolbarTitle>Server Performance</ToolbarTitle>
+				<ToolbarTitle>{ title }</ToolbarTitle>
 				<ToolbarActions>
 					<ThemeSwitcher/>
 				</ToolbarActions>
