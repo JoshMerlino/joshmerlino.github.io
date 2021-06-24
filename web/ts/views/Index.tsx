@@ -1,5 +1,3 @@
-/* eslint @typescript-eslint/no-var-requires: off */
-import Markdown from "../components/Markdown";
 import React from "react";
 import { Container, Row, Col } from "photoncss/react";
 import HomeMain from "../components/Block/HomeMain";
@@ -49,10 +47,6 @@ export default function View(): JSX.Element {
 						</article>
 					</Col>
 				</Row>
-
-				<hr/><br/>
-
-				<Markdown>{ require("../../../../README.md").default }</Markdown>
 			</Container>
 		</>
 	);
