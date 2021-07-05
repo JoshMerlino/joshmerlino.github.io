@@ -50,7 +50,7 @@
 		"@types/jquery": "^3.5.5",
 		"@types/mini-css-extract-plugin": "^2.0.0",
 		"@types/mkdirp": "^1.0.1",
-		"@types/node": "^15.14.0",
+		"@types/node": "^16.0.0",
 		"@types/node-fetch": "^2.5.10",
 		"@types/optimize-css-assets-webpack-plugin": "^5.0.3",
 		"@types/prismjs": "^1.16.5",
@@ -60,7 +60,7 @@
 		"@types/webpack": "^5.28.0",
 		"@types/webpack-env": "^1.16.1",
 		"@typescript-eslint/eslint-plugin": "^4.28.1",
-		"@typescript-eslint/parser": "^4.28.1",
+		"@typescript-eslint/parser": "^4.28.2",
 		"app-manifest-webpack-plugin": "^1.2.0",
 		"babel-loader": "^8.1.0",
 		"classnames": "^2.2.6",
@@ -112,7 +112,7 @@
 		"workbox-webpack-plugin": "^6.1.5"
 	},
 	"dependencies": {
-		"async-require-context": "^1.0.3",
+		"async-require-context": "^1.8.6",
 		"chalk": "^4.1.1",
 		"compression": "^1.7.4",
 		"cookie-parser": "^1.4.5",
