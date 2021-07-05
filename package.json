@@ -50,7 +50,7 @@
 		"@types/jquery": "^3.5.5",
 		"@types/mini-css-extract-plugin": "^2.0.0",
 		"@types/mkdirp": "^1.0.1",
-		"@types/node": "^15.14.0",
+		"@types/node": "^16.0.0",
 		"@types/node-fetch": "^2.5.10",
 		"@types/optimize-css-assets-webpack-plugin": "^5.0.3",
 		"@types/prismjs": "^1.16.5",
@@ -86,7 +86,7 @@
 		"optimize-css-assets-webpack-plugin": "^6.0.1",
 		"photoncss": "^12.18.15",
 		"preload-webpack-plugin": "^3.0.0-beta.3",
-		"prismjs": "^1.24.0",
+		"prismjs": "^1.24.1",
 		"purgecss-webpack-plugin": "^4.0.2",
 		"query-string": "^7.0.1",
 		"raw-loader": "^4.0.0",
@@ -112,7 +112,7 @@
 		"workbox-webpack-plugin": "^6.1.5"
 	},
 	"dependencies": {
-		"async-require-context": "^1.0.3",
+		"async-require-context": "^1.8.6",
 		"chalk": "^4.1.1",
 		"compression": "^1.7.4",
 		"cookie-parser": "^1.4.5",
