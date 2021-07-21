@@ -1,5 +1,5 @@
 /* eslint no-invalid-this: off */
-import guid from "photoncss/src/js/util/guid";
+import { guid } from "photoncss";
 import React, { useEffect } from "react";
 import Markdown from "react-markdown/with-html";
 import Prism from "prismjs";

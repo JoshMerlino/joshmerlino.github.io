@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ListItem, TextIcon } from "photoncss/lib/react";
-import Waves from "photoncss/src/js/util/Waves";
+import { Waves } from "photoncss";
 import classnames from "classnames";
 import Photon from "photoncss";
 
