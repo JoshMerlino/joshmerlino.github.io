@@ -1,6 +1,6 @@
 import React from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
-import { Card, CardTitle, Col } from "photoncss/react";
+import { Card, CardTitle, Col } from "photoncss/lib/react";
 
 export interface Props {
 	title: string;

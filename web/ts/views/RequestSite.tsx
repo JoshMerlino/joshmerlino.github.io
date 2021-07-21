@@ -1,5 +1,5 @@
 import Photon from "photoncss";
-import { Icon, Toolbar, ToolbarTitle, ToolbarActions, Container } from "photoncss/react";
+import { Icon, Toolbar, ToolbarTitle, ToolbarActions, Container } from "photoncss/lib/react";
 import ThemeSwitcher from "../components/ThemeSwitcher";
 import React from "react";
 

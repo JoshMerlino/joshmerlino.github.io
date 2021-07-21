@@ -1,5 +1,5 @@
 import React from "react";
-import { Drawer, ListSubheader } from "photoncss/react";
+import { Drawer, ListSubheader } from "photoncss/lib/react";
 import app from "../app";
 import { DrawerEntry } from "./DrawerEntry";
 

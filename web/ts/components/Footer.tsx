@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Footer, FooterCopyright, Container, Row, Col } from "photoncss/react";
+import { Footer, FooterCopyright, Container, Row, Col } from "photoncss/lib/react";
 import DiscordInvite from "react-discord-invite";
 import app from "../app";
 

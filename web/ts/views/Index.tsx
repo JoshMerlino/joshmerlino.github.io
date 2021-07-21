@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "photoncss/react";
+import { Container, Row, Col } from "photoncss/lib/react";
 import HomeMain from "../components/Block/HomeMain";
 
 export const route = "/";

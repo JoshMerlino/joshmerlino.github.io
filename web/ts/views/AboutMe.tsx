@@ -1,6 +1,6 @@
 /* eslint @typescript-eslint/no-var-requires: off */
 import Photon from "photoncss";
-import { Container, Icon, Toolbar, ToolbarActions, ToolbarTitle, Row, Col } from "photoncss/react";
+import { Container, Icon, Toolbar, ToolbarActions, ToolbarTitle, Row, Col } from "photoncss/lib/react";
 import React from "react";
 import Markdown from "../components/Markdown";
 import ThemeSwitcher from "../components/ThemeSwitcher";

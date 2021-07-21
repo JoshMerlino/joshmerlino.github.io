@@ -1,4 +1,4 @@
-import { Icon } from "photoncss/react";
+import { Icon } from "photoncss/lib/react";
 import React, { useState } from "react";
 
 export type Theme = "light" | "dark" | "auto";

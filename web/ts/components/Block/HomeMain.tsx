@@ -1,5 +1,5 @@
 import Photon from "photoncss";
-import { Col, Container, Icon, Row, Toolbar, ToolbarActions, Button } from "photoncss/react";
+import { Col, Container, Icon, Row, Toolbar, ToolbarActions, Button } from "photoncss/lib/react";
 import ThemeSwitcher from "../ThemeSwitcher";
 import { Link } from "react-router-dom";
 import React, { useEffect } from "react";
