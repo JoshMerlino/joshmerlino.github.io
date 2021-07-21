@@ -1,4 +1,4 @@
-import app from "../app";
+import app from "../src/app";
 import React, { useState } from "react";
 
 export default function Avatar(): JSX.Element {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Drawer, ListSubheader } from "photoncss/lib/react";
-import app from "../app";
+import app from "../src/app";
 import { DrawerEntry } from "./DrawerEntry";
 
 export default function Component(): JSX.Element {
