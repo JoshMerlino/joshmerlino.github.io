@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { ThemeProvider } from "photoncss/lib/react";
 import { Route } from "react-router-dom";
 import Router from "./Router";
+import Drawer from "components/Drawer";
 
 type Props = { views: View[] };
 export default function Runtime({ views }: Props): JSX.Element {
@@ -44,6 +45,7 @@ export default function Runtime({ views }: Props): JSX.Element {
 	return (
 		<ThemeProvider global>
 			<Router>
+				<Drawer/>
 				<main>
 					{ views.map(({ route, default: view }, key) =>
 						<Route
