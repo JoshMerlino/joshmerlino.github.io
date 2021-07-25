@@ -4,6 +4,7 @@ import { ThemeProvider } from "photoncss/lib/react";
 import { Route } from "react-router-dom";
 import Router from "./Router";
 import Drawer from "components/Drawer";
+import Footer from "components/Footer";
 
 type Props = { views: View[] };
 export default function Runtime({ views }: Props): JSX.Element {
@@ -55,6 +56,7 @@ export default function Runtime({ views }: Props): JSX.Element {
 							component={view as unknown as React.ComponentType}/>
 					) }
 				</main>
+				<Footer/>
 			</Router>
 		</ThemeProvider>
 	);
