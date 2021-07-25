@@ -129,7 +129,13 @@ declare interface IPerformanceSuccess {
 	}
 }
 
-declare type IPerformance = { success: false } | IPerformanceSuccess;
+declare type IPerformance = { success: false } | {
+	success?: boolean;
+	nodes: {
+		name: string;
+		stats: IPerformanceSuccess;
+	}[];
+};
 
 declare interface IRepository {
   id: number

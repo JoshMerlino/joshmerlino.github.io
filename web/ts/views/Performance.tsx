@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Container, Icon, Row, Toolbar, ToolbarTitle, ToolbarActions } from "photoncss/lib/react";
+import { Container, Icon, Row, Toolbar, ToolbarTitle, ToolbarActions, InputField, VHCenter, Spinner } from "photoncss/lib/react";
 import ThemeSwitcher from "../components/ThemeSwitcher";
 import Masonry from "react-masonry-component";
 import Photon from "photoncss";
 import Performance from "../components/Performance";
+import qs from "qs";
 
 export const route = "/performance";
 export const title = "Server Performance";
@@ -11,11 +12,12 @@ export const title = "Server Performance";
 export function PerformanceMonitor(): JSX.Element | null {
 
 	// Initialize default state
-	const [ state, setState ] = useState<IPerformance>({ success: false });
+	const [ apiResponse, setApiResponse ] = useState<IPerformance>({ success: false });
+	const [ node, setNode ] = useState(qs.parse(location.search.split("?")[1]).node || "jnode0");
 
 	// Resolve method
-	const resolve = () => fetch("https://joshm.us.to/api/v1/performance").then(resp => resp.json())
-		.then(setState);
+	const resolve = () => fetch("https://joshm.us.to/api/v2/performance").then(resp => resp.json())
+		.then(setApiResponse);
 
 	// Set resolve on interval
 	useEffect(function() {
@@ -28,13 +30,32 @@ export function PerformanceMonitor(): JSX.Element | null {
 		};
 	}, []);
 
-	if (state.success === false) return null;
+	if (apiResponse.success === false) return (
+		<VHCenter>
+			<Spinner/>
+		</VHCenter>
+	);
+
+	const state = (apiResponse.nodes.filter(n => n.name.toLowerCase() === node)[0] || apiResponse.nodes[0]).stats;
 
 	return (
 		<Container>
 			<Row>
 
 				<br/><br/><br/><br/>
+
+				<div style={{ margin: -8 }}>
+					<InputField
+						id="node-select"
+						variant="outlined"
+						value={node}
+						dropdown={apiResponse.nodes.map(node => node.name)}
+						onChange={ () => {
+							window.history.pushState(null, "", `${location.pathname}?node=${$("#node-select").val()}`);
+							setNode($("#node-select").val() as string);
+						} }>Select Node</InputField>
+				</div>
+
 				<h3 style={{ margin: 4, fontFamily: "Roboto" }}>Uptime: <span className="badge">{state.os.uptime_formatted}</span></h3>
 
 				<Masonry>
@@ -97,9 +118,6 @@ export function PerformanceMonitor(): JSX.Element | null {
 							null,
 							[ "Connection Type", `${state.network.adapter.type} ${state.network.adapter.duplex} duplex` ],
 							[ "Link Speed", state.network.adapter.speed_formatted ],
-							null,
-							[ "API Requests/second", state.network.requests.req_per_second ],
-							[ "API Requests since last boot", state.network.requests.req_counter.toLocaleString("en-US") ],
 							null,
 							[ "Upload/second", state.network.tx_sec_formatted ],
 							[ "Download/second", state.network.rx_sec_formatted ],
