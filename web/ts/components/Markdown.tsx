@@ -2,8 +2,8 @@
 import { guid } from "photoncss";
 import React, { useEffect } from "react";
 import Markdown from "react-markdown/with-html";
-import Prism from "prismjs";
 import gfm from "remark-gfm";
+import Prism from "prismjs";
 import $ from "jquery";
 
 export type Props = { children: string };
