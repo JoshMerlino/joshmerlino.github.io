@@ -25,7 +25,7 @@ export default function View(): JSX.Element {
 			<Container>
 				<Row>
 					<Col md={10} lg={8} xl={6}>
-						<Markdown>{ require("../../../../README.md").default }</Markdown>
+						<Markdown>{ require("../../../../docs/personal-statement.md").default }</Markdown>
 					</Col>
 				</Row>
 			</Container>
