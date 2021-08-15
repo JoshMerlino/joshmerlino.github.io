@@ -19,6 +19,7 @@ export default function Component(): JSX.Element {
 			<hr/>
 			<DrawerEntry icon="home" to="/">Home</DrawerEntry>
 			<hr/>
+			<ListSubheader>My Stuff</ListSubheader>
 			<DrawerEntry icon="person_outline" to="/about">About Me</DrawerEntry>
 			<DrawerEntry icon="work_outline" to="/my-work">My Work</DrawerEntry>
 			<DrawerEntry icon="add_circle_outline" to="/request-site">Request a Site</DrawerEntry>
