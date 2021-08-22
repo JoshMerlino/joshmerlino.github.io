@@ -41,7 +41,7 @@ export default function View(): JSX.Element {
 
 					<Col lg={8} xl={9}>
 						<h1>Templates</h1>
-						<Masonry>
+						<Masonry options={{ transitionDuration: 0 }}>
 							{
 								repos
 									.filter(repo => repo.is_template)
@@ -50,7 +50,7 @@ export default function View(): JSX.Element {
 						</Masonry>
 						<hr/>
 						<h1>npm Packages</h1>
-						<Masonry>
+						<Masonry options={{ transitionDuration: 0 }}>
 							{
 								repos
 									.filter(repo => repo.homepage?.match(/npmjs/))
@@ -59,7 +59,7 @@ export default function View(): JSX.Element {
 						</Masonry>
 						<hr/>
 						<h1>My Repositorys</h1>
-						<Masonry>
+						<Masonry options={{ transitionDuration: 0 }}>
 							{
 								repos
 									.filter(repo => !repo.fork && !repo.archived && !repo.is_template)
@@ -68,7 +68,7 @@ export default function View(): JSX.Element {
 						</Masonry>
 						<hr/>
 						<h1>Forked Repositorys</h1>
-						<Masonry>
+						<Masonry options={{ transitionDuration: 0 }}>
 							{
 								repos
 									.filter(repo => repo.fork && !repo.archived)
@@ -77,7 +77,7 @@ export default function View(): JSX.Element {
 						</Masonry>
 						<hr/>
 						<h1>Archived Repositorys</h1>
-						<Masonry>
+						<Masonry options={{ transitionDuration: 0 }}>
 							{
 								repos
 									.filter(repo => repo.archived)
