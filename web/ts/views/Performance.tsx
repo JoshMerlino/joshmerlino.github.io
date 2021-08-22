@@ -56,7 +56,7 @@ export function PerformanceMonitor(): JSX.Element | null {
 						} }>Select Node</InputField>
 				</div>
 
-				<h3 style={{ margin: 4, fontFamily: "Roboto" }}>Uptime: <span className="badge">{state.os.uptime_formatted}</span></h3>
+				<h3 style={{ margin: 4, marginBottom: 16, fontFamily: "Roboto" }}>Uptime: <span className="badge">{state.os.uptime_formatted}</span></h3>
 
 				<Masonry>
 
