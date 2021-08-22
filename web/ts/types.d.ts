@@ -131,6 +131,7 @@ declare interface IPerformanceSuccess {
 
 declare type IPerformance = { success: false } | {
 	success?: boolean;
+	api: Record<string, number>;
 	nodes: {
 		name: string;
 		stats: IPerformanceSuccess;

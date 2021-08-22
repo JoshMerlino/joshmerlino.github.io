@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Container, Icon, Row, Toolbar, ToolbarTitle, ToolbarActions, InputField, VHCenter, Spinner } from "photoncss/lib/react";
-import ThemeSwitcher from "../components/ThemeSwitcher";
-import Masonry from "react-masonry-component";
 import Photon from "photoncss";
-import Performance from "../components/Performance";
+import { Container, Icon, InputField, Row, Spinner, Toolbar, ToolbarActions, ToolbarTitle, VHCenter } from "photoncss/lib/react";
 import qs from "qs";
+import React, { useEffect, useState } from "react";
+import Masonry from "react-masonry-component";
+import Performance from "../components/Performance";
+import ThemeSwitcher from "../components/ThemeSwitcher";
 
 export const route = "/performance";
 export const title = "Server Performance";
@@ -44,7 +44,22 @@ export function PerformanceMonitor(): JSX.Element | null {
 
 				<br/><br/><br/><br/>
 
-				<div style={{ margin: -8 }}>
+				<div className="title" style={{ margin: "8px -4px" }}><h3>Network</h3></div>
+
+				<Performance
+					title="API"
+					properties={[
+						[ "Requests per Second", apiResponse.api.req_per_second.toLocaleString() ],
+						[ "Requests Since Last Boot", apiResponse.api.req_counter.toLocaleString() ]
+					]}/>
+
+				<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+				<hr style={{ margin: "16px 4px" }}/>
+
+				<div className="title" style={{ margin: "8px -4px" }}><h3>Node</h3></div>
+
+				<div style={{ margin: -6 }}>
 					<InputField
 						id="node-select"
 						variant="outlined"
