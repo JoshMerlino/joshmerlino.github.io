@@ -47,9 +47,6 @@ export default function HomeMain(): JSX.Element {
 						<Link to="/my-work">
 							<Button variant="outlined" color="primary">My work</Button>
 						</Link>
-						<Link to="/about">
-							<Button variant="outlined" color="primary">About me</Button>
-						</Link>
 					</Col>
 				</Row>
 			</Container>
