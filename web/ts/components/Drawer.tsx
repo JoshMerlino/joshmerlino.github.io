@@ -27,7 +27,9 @@ export default function Component(): JSX.Element {
 			<ListSubheader>Infrastructure</ListSubheader>
 			<DrawerEntry icon="api" to="https://joshm.us.to/docs/" external>API Documentation</DrawerEntry>
 			<DrawerEntry icon="memory" to="/performance">Server Performance</DrawerEntry>
-
+			<hr/>
+			<ListSubheader>Tools</ListSubheader>
+			<DrawerEntry icon="translate" to="/dictionary">Dictionary</DrawerEntry>
 		</Drawer>
 	);
 }

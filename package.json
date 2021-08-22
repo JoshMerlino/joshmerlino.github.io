@@ -70,6 +70,7 @@
 		"concurrently": "^6.2.1",
 		"copy-webpack-plugin": "^6.4.1",
 		"css-loader": "^5.2.7",
+		"dayjs": "^1.10.6",
 		"duplicate-package-checker-webpack-plugin": "^3.0.0",
 		"eslint": "^7.32.0",
 		"eslint-plugin-react": "^7.22.0",
