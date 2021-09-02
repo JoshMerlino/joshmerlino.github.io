@@ -36,7 +36,7 @@ export default function View(): JSX.Element {
 				<Row>
 					<Col lg={6}>
 						<article>
-							<h1>Font-end design</h1>
+							<h1>Front-end design</h1>
 							<p>I design user interfaces to be fast, adaptive and modern. Every website is different however their all crafted to the same high quality standards.</p>
 						</article>
 					</Col>
