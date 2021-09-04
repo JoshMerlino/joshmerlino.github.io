@@ -33,7 +33,7 @@ export default function HomeMain(): JSX.Element {
 					<Col sm={1}/>
 					<Col sm={12} md={8} lg={9} style={{ padding: "0px 8px" }}>
 						<div className="title">
-							<h3 style={{ fontSize: 36 }}>{ APP_MANIFEST.name }</h3>
+							<h3 style={{ fontSize: 36, color: "#fff" }}>{ APP_MANIFEST.name }</h3>
 						</div>
 						<h3 style={{ color: "inherit" }}>{ APP_MANIFEST.description }</h3>
 						<div className="DiscordInvite-wrapper">
