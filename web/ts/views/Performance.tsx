@@ -17,13 +17,14 @@ export function PerformanceMonitor(): JSX.Element | null {
 
 	// Resolve method
 	const resolve = () => fetch("https://joshm.us.to/api/v2/performance").then(resp => resp.json())
-		.then(setApiResponse);
+		.then(setApiResponse)
+		.catch(() => setTimeout(resolve, 5000));
 
 	// Set resolve on interval
 	useEffect(function() {
 		let __refresh = true;
 		(function refresh() {
-			if (__refresh) resolve().finally(refresh);
+			if (__refresh) resolve().then(refresh);
 		}());
 		return function() {
 			__refresh = false;
