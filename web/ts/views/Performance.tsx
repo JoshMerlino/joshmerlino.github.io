@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-explicit-any: off */
 import Photon from "photoncss";
 import { Container, Icon, InputField, Row, Spinner, Toolbar, ToolbarActions, ToolbarTitle, VHCenter } from "photoncss/lib/react";
 import qs from "qs";
@@ -16,7 +17,7 @@ export function PerformanceMonitor(): JSX.Element | null {
 	const [ node, setNode ] = useState(qs.parse(location.search.split("?")[1]).node || "jnode0");
 
 	// Resolve method
-	const resolve = () => fetch("https://joshm.us.to/api/v2/performance").then(resp => resp.json())
+	const resolve = (): any => fetch("https://joshm.us.to/api/v2/performance").then(resp => resp.json())
 		.then(setApiResponse)
 		.catch(() => setTimeout(resolve, 5000));
 
