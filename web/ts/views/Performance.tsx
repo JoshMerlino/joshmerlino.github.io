@@ -45,20 +45,7 @@ export function PerformanceMonitor(): JSX.Element | null {
 			<Row>
 
 				<br/><br/><br/><br/>
-
-				<div className="title" style={{ margin: "8px -4px" }}><h3>Network</h3></div>
-
-				<Performance
-					title="API"
-					properties={[
-						[ "Requests/second", apiResponse.api.req_per_second.toLocaleString() ],
-						[ "Requests (boot to date)", apiResponse.api.req_counter.toLocaleString() ]
-					]}/>
-
-				<br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
-				<hr style={{ margin: "16px 4px" }}/>
-
+				
 				<div className="title" style={{ margin: "8px -4px" }}><h3>Node</h3></div>
 
 				<div style={{ margin: -6 }}>
@@ -76,6 +63,13 @@ export function PerformanceMonitor(): JSX.Element | null {
 				<h3 style={{ margin: 4, marginBottom: 16, fontFamily: "Roboto" }}>Uptime: <span className="badge">{state.os.uptime_formatted}</span></h3>
 
 				<Masonry options={{ transitionDuration: 0 }}>
+
+					{ apiResponse.nodes.indexOf(state) === 1 && <Performance
+					title="API"
+					properties={[
+						[ "Requests/second", apiResponse.api.req_per_second.toLocaleString() ],
+						[ "Requests (${apiResponse.nodes[1].os.uptime_formatted})", apiResponse.api.req_counter.toLocaleString() ]
+					]}/> }
 
 					<Performance
 					  color="blue"
