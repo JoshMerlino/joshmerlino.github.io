@@ -1,4 +1,3 @@
-import path from "path";
 import { HotModuleReplacementPlugin, DefinePlugin, Configuration } from "webpack";
 import merge from "webpack-merge";
 import config from "./webpack.conf";
@@ -26,7 +25,6 @@ export = merge(config, <Configuration>{
 			}
 		},
 		hot: true,
-		open: true,
 		host: "localhost"
 	}
 });
