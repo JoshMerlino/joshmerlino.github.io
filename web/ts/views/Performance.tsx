@@ -65,11 +65,11 @@ export function PerformanceMonitor(): JSX.Element | null {
 
 				<Masonry options={{ transitionDuration: 0 }}>
 
-					{ state.name === "node1" && <Performance
+					{ state.name === "jnode1" && <Performance
 						title="API"
 						properties={[
 							[ "Requests/second", apiResponse.api.req_per_second.toLocaleString() ],
-							[ "Requests (${apiResponse.nodes[1].os.uptime_formatted})", apiResponse.api.req_counter.toLocaleString() ]
+							[ `Requests (${stats.os.uptime_formatted})`, apiResponse.api.req_counter.toLocaleString() ]
 						]}/> }
 
 					<Performance
