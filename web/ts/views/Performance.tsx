@@ -38,14 +38,15 @@ export function PerformanceMonitor(): JSX.Element | null {
 		</VHCenter>
 	);
 
-	const state = (apiResponse.nodes.filter(n => n.name.toLowerCase() === node)[0] || apiResponse.nodes[0]).stats;
+	const state = apiResponse.nodes.filter(n => n.name.toLowerCase() === node)[0] || apiResponse.nodes[0];
+	const { stats } = state;
 
 	return (
 		<Container>
 			<Row>
 
 				<br/><br/><br/><br/>
-				
+
 				<div className="title" style={{ margin: "8px -4px" }}><h3>Node</h3></div>
 
 				<div style={{ margin: -6 }}>
@@ -60,53 +61,53 @@ export function PerformanceMonitor(): JSX.Element | null {
 						} }>Select Node</InputField>
 				</div>
 
-				<h3 style={{ margin: 4, marginBottom: 16, fontFamily: "Roboto" }}>Uptime: <span className="badge">{state.os.uptime_formatted}</span></h3>
+				<h3 style={{ margin: 4, marginBottom: 16, fontFamily: "Roboto" }}>Uptime: <span className="badge">{stats.os.uptime_formatted}</span></h3>
 
 				<Masonry options={{ transitionDuration: 0 }}>
 
-					{ apiResponse.nodes.indexOf(state) === 1 && <Performance
-					title="API"
-					properties={[
-						[ "Requests/second", apiResponse.api.req_per_second.toLocaleString() ],
-						[ "Requests (${apiResponse.nodes[1].os.uptime_formatted})", apiResponse.api.req_counter.toLocaleString() ]
-					]}/> }
+					{ state.name === "node1" && <Performance
+						title="API"
+						properties={[
+							[ "Requests/second", apiResponse.api.req_per_second.toLocaleString() ],
+							[ "Requests (${apiResponse.nodes[1].os.uptime_formatted})", apiResponse.api.req_counter.toLocaleString() ]
+						]}/> }
 
 					<Performance
 					  color="blue"
 					  title="CPU"
-					  subtitle={state.cpu.model}
+					  subtitle={stats.cpu.model}
 					  properties={[
-							[ "Core Temp", `${state.cpu.temp} °C` ],
-							[ "Current Speed", `${state.cpu.speed} GHz` ],
+							[ "Core Temp", `${stats.cpu.temp} °C` ],
+							[ "Current Speed", `${stats.cpu.speed} GHz` ],
 							null,
-							[ "Cores", state.cpu.cores ],
-							[ "Maximum Speed", `${state.cpu.speedmax} GHz` ],
-							[ "Minimum Speed", `${state.cpu.speedmin} GHz` ]
+							[ "Cores", stats.cpu.cores ],
+							[ "Maximum Speed", `${stats.cpu.speedmax} GHz` ],
+							[ "Minimum Speed", `${stats.cpu.speedmin} GHz` ]
 					  ]}
-					  value={state.cpu.usage}/>
+					  value={stats.cpu.usage}/>
 
 					<Performance
 					  color="purple"
 					  title="Memory"
 					  properties={[
-							[ "Used Memory", state.mem.used_formatted ],
-							[ "Installed Memory", state.mem.total_formatted ],
-							[ "Slots Used", state.mem.layout.length ],
-							[ "Generation", state.mem.layout[0].type ],
-							[ "Clock Speed", `${state.mem.layout[0].clockSpeed} MHz` ]
+							[ "Used Memory", stats.mem.used_formatted ],
+							[ "Installed Memory", stats.mem.total_formatted ],
+							[ "Slots Used", stats.mem.layout.length ],
+							[ "Generation", stats.mem.layout[0].type ],
+							[ "Clock Speed", `${stats.mem.layout[0].clockSpeed} MHz` ]
 					  ]}
-					  value={state.mem.usage}/>
+					  value={stats.mem.usage}/>
 
 					<Performance
 					  color="pink"
 					  title="Memory Swap"
 					  properties={[
-							[ "Used Swap", state.mem.swapused_formatted ],
-							[ "Total Swap", state.mem.swaptotal_formatted ]
+							[ "Used Swap", stats.mem.swapused_formatted ],
+							[ "Total Swap", stats.mem.swaptotal_formatted ]
 					  ]}
-					  value={state.mem.swapusage}/>
+					  value={stats.mem.swapusage}/>
 
-					{ state.storage.drives.map((drive, key: number) => <Performance
+					{ stats.storage.drives.map((drive, key: number) => <Performance
 						  key={key}
   						  color="green"
   						  title="Storage"
@@ -124,36 +125,36 @@ export function PerformanceMonitor(): JSX.Element | null {
 					  color="yellow"
 					  title="Network"
 					  properties={[
-							[ "Ping", `${state.network.inet_ping} ms` ],
-							[ "Ping (Proxy server)", `${state.network.proxy_ping} ms` ],
+							[ "Ping", `${stats.network.inet_ping} ms` ],
+							[ "Ping (Proxy server)", `${stats.network.proxy_ping} ms` ],
 							null,
-							[ "Connection Type", `${state.network.adapter.type} ${state.network.adapter.duplex} duplex` ],
-							[ "Link Speed", state.network.adapter.speed_formatted ],
+							[ "Connection Type", `${stats.network.adapter.type} ${stats.network.adapter.duplex} duplex` ],
+							[ "Link Speed", stats.network.adapter.speed_formatted ],
 							null,
-							[ "Upload/second", state.network.tx_sec_formatted ],
-							[ "Download/second", state.network.rx_sec_formatted ],
+							[ "Upload/second", stats.network.tx_sec_formatted ],
+							[ "Download/second", stats.network.rx_sec_formatted ],
 							null,
-							[ "Upload", state.network.tx_bytes_formatted ],
-							[ "Download", state.network.rx_bytes_formatted ]
+							[ "Upload", stats.network.tx_bytes_formatted ],
+							[ "Download", stats.network.rx_bytes_formatted ]
 					  ]}
-					  value={state.network.usage}/>
+					  value={stats.network.usage}/>
 
 					<Performance
 					  title="Software"
 					  properties={[
-							[ "Kernel Version", `${state.os.platform} ${state.os.kernel}` ],
-							[ "Distro", `${state.os.distro} ${state.os.release}` ],
-							[ "Code Name", state.os.codename ],
+							[ "Kernel Version", `${stats.os.platform} ${stats.os.kernel}` ],
+							[ "Distro", `${stats.os.distro} ${stats.os.release}` ],
+							[ "Code Name", stats.os.codename ],
 							null,
-							...Object.keys(state.os.software).map(software => [ software, state.os.software[software] ] as [ string, string ])
+							...Object.keys(stats.os.software).map(software => [ software, stats.os.software[software] ] as [ string, string ])
 					  ]}/>
 
   					<Performance
 					  title="Hardware Acceleration"
 					  properties={[
-							[ "Video Memory", state.gpu.vram_formatted ],
-							[ "Manufacturer", state.gpu.vendor ],
-							[ "Model", state.gpu.model ]
+							[ "Video Memory", stats.gpu.vram_formatted ],
+							[ "Manufacturer", stats.gpu.vendor ],
+							[ "Model", stats.gpu.model ]
 						]}/>
 
 				</Masonry>
