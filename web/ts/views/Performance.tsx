@@ -65,7 +65,7 @@ export function PerformanceMonitor(): JSX.Element | null {
 
 				<Masonry options={{ transitionDuration: 0 }}>
 
-					{ state.name === "jnode1" && <Performance
+					{ state.name === "proxy" && <Performance
 						title="API"
 						properties={[
 							[ "Requests/second", apiResponse.api.req_per_second.toLocaleString() ],
