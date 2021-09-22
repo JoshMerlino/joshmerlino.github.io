@@ -14,7 +14,7 @@ export function PerformanceMonitor(): JSX.Element | null {
 
 	// Initialize default state
 	const [ apiResponse, setApiResponse ] = useState<IPerformance>({ success: false });
-	const [ node, setNode ] = useState(qs.parse(location.search.split("?")[1]).node || "jnode0");
+	const [ node, setNode ] = useState(qs.parse(location.search.split("?")[1]).node || "proxy");
 
 	// Resolve method
 	const resolve = (): any => fetch("https://joshm.us.to/api/v2/performance").then(resp => resp.json())
