@@ -53,10 +53,13 @@ export default function Component(): JSX.Element {
 							<li><a target="_blank" href="//twitter.com/josh_merlino" rel="noreferrer">Twitter</a></li>
 						</ul>
 					</Col>
-					<Col xl={4}>
-						<div className="raised-3" style={{ display: "inline-block", float: "right", margin: "16px 0" }}>
+					<Col xl={4} style={{ textAlign: "right" }}>
+						<div className="raised-3" style={{ display: "inline-block", float: "right", margin: "16px 0", marginLeft: 16 }}>
 							<DiscordInvite guild="635938104775278602"/>
 						</div>
+						<a href="//github.com/JoshMerlino/joshmerlino.github.io" style={{ marginTop: 16, display: "inline-block", maxWidth: "calc(100vw - 32px)", overflow: "hidden" }}>
+							<img src={"https://github-readme-stats.vercel.app/api/pin/?username=JoshMerlino&repo=joshmerlino.github.io&theme=radical&bg_color=22272e&border_color=373e47&title_color=58a6ff&icon_color=adbac7&text_color=adbac7"} alt="" className="raised-3"/>
+						</a>
 					</Col>
 				</Row>
 			</Container>
