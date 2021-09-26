@@ -48,7 +48,7 @@ export default function Component(): JSX.Element {
 							<li><a target="_blank" href="//github.com/JoshMerlino" rel="noreferrer">GitHub</a></li>
 							<li><a target="_blank" href="//instagram.com/josh.merlino/" rel="noreferrer">Instagram</a></li>
 							<li><a target="_blank" href="//npmjs.com/~jmer05" rel="noreferrer">npm</a></li>
-							<li><a target="_blank" href={app.static("bitmoji/snapcode.png")} rel="noreferrer">Snapchat</a></li>
+							<li><a target="_blank" href="//snapchat.com/add/josh.m3r1in0" rel="noreferrer">Snapchat</a></li>
 							<li><a target="_blank" href="//stackoverflow.com/users/7356221" rel="noreferrer">StackOverflow</a></li>
 							<li><a target="_blank" href="//twitter.com/josh_merlino" rel="noreferrer">Twitter</a></li>
 						</ul>
