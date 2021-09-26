@@ -90,7 +90,7 @@ export default function View(): JSX.Element {
 						<Marquee style={{ margin: "16px 8px" }} speed={32}>
 							{ frontend.map((src, key, { length }) =>
 								<MarqueeComponent key={key} width={1280/length}>
-									<div className="raised-8" style={{ width: 92, height: 92, borderRadius: "50%", background: "var(--palette_sheet_background)" }}>
+									<div className="floating raised-8" style={{ width: 92, animationDuration: `${Math.random() * 7 + 3}s`, height: 92, borderRadius: "50%", background: "var(--palette_sheet_background)" }}>
 										<img style={{ margin: 20, width: 52, height: 52, borderRadius: 8 }} src={app.static(src)} alt=""/>
 									</div>
 								</MarqueeComponent>
@@ -111,7 +111,7 @@ export default function View(): JSX.Element {
 						<Marquee style={{ margin: "16px 8px" }} speed={32} direction="right">
 							{ backend.map((src, key, { length }) =>
 								<MarqueeComponent key={key} width={1280/length}>
-									<div className="raised-8" style={{ width: 92, height: 92, borderRadius: "50%", background: "var(--palette_sheet_background)" }}>
+									<div className="floating raised-8" style={{ width: 92, animationDuration: `${Math.random() * 7 + 3}s`, height: 92, borderRadius: "50%", background: "var(--palette_sheet_background)" }}>
 										<img style={{ margin: 20, width: 52, height: 52, borderRadius: 8 }} src={app.static(src)} alt=""/>
 									</div>
 								</MarqueeComponent>
@@ -131,7 +131,7 @@ export default function View(): JSX.Element {
 						<Marquee style={{ margin: "16px 8px" }} speed={32}>
 							{ tools.map((src, key, { length }) =>
 								<MarqueeComponent key={key} width={1280/length}>
-									<div className="raised-8" style={{ width: 92, height: 92, borderRadius: "50%", background: "var(--palette_sheet_background)" }}>
+									<div className="floating raised-8" style={{ width: 92, animationDuration: `${Math.random() * 7 + 3}s`, height: 92, borderRadius: "50%", background: "var(--palette_sheet_background)" }}>
 										<img style={{ margin: 20, width: 52, height: 52, borderRadius: 8 }} src={app.static(src)} alt=""/>
 									</div>
 								</MarqueeComponent>
