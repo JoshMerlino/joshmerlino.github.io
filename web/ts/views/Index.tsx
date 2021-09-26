@@ -7,46 +7,15 @@ import MarqueeComponent from "components/MarqueeComponent";
 
 export const route = "/";
 
-const frontend = [
-	"stack/webpack.svg",
-	"stack/html.svg",
-	"stack/babel.svg",
-	"stack/javascript.svg",
-	"stack/typescript.svg",
-	"stack/react.svg",
-	"stack/jquery.svg",
-	"stack/photon.png",
-	"stack/less.svg",
-	"stack/git.svg",
-	"stack/npm.svg",
-	"stack/css3.svg"
-];
-
-const backend = [
-	"stack/ubuntu.svg",
-	"stack/babel.svg",
-	"stack/express.svg",
-	"stack/javascript.svg",
-	"stack/typescript.svg",
-	"stack/linux.svg",
-	"stack/stripe.svg",
-	"stack/mysql.svg",
-	"stack/npm.svg",
-	"stack/node.svg"
-];
-
-const tools = [
-	"stack/github.svg",
-	"stack/docker.svg",
-	"stack/photoshop.svg",
-	"stack/vscode.svg",
-	"stack/atom.svg",
-	"stack/firefox.svg",
-	"stack/chrome-dev.svg",
-	"stack/git.svg",
-	"stack/eslint.svg",
-	"stack/gitkraken.svg"
-];
+function list(items: string[]) {
+	return items.map((src, key, { length }) =>
+		<MarqueeComponent key={key} width={1280/length}>
+			<div className="floating raised-8" style={{ width: 92, animationDuration: `${Math.random() * 7 + 3}s`, height: 92, borderRadius: "50%", background: "var(--palette_sheet_background)" }}>
+				<img style={{ margin: 20, width: 52, height: 52, borderRadius: 8 }} src={app.static(src)} alt=""/>
+			</div>
+		</MarqueeComponent>
+	);
+}
 
 export default function View(): JSX.Element {
 	return (
@@ -88,13 +57,20 @@ export default function View(): JSX.Element {
 
 					<Col>
 						<Marquee style={{ margin: "16px 8px" }} speed={32}>
-							{ frontend.map((src, key, { length }) =>
-								<MarqueeComponent key={key} width={1280/length}>
-									<div className="floating raised-8" style={{ width: 92, animationDuration: `${Math.random() * 7 + 3}s`, height: 92, borderRadius: "50%", background: "var(--palette_sheet_background)" }}>
-										<img style={{ margin: 20, width: 52, height: 52, borderRadius: 8 }} src={app.static(src)} alt=""/>
-									</div>
-								</MarqueeComponent>
-							)}
+							{list([
+								"stack/webpack.svg",
+								"stack/html.svg",
+								"stack/babel.svg",
+								"stack/javascript.svg",
+								"stack/typescript.svg",
+								"stack/react.svg",
+								"stack/jquery.svg",
+								"stack/photon.png",
+								"stack/less.svg",
+								"stack/git.svg",
+								"stack/npm.svg",
+								"stack/css3.svg"
+							])}
 						</Marquee>
 						<br/><hr/><br/>
 					</Col>
@@ -109,13 +85,18 @@ export default function View(): JSX.Element {
 
 					<Col>
 						<Marquee style={{ margin: "16px 8px" }} speed={32} direction="right">
-							{ backend.map((src, key, { length }) =>
-								<MarqueeComponent key={key} width={1280/length}>
-									<div className="floating raised-8" style={{ width: 92, animationDuration: `${Math.random() * 7 + 3}s`, height: 92, borderRadius: "50%", background: "var(--palette_sheet_background)" }}>
-										<img style={{ margin: 20, width: 52, height: 52, borderRadius: 8 }} src={app.static(src)} alt=""/>
-									</div>
-								</MarqueeComponent>
-							)}
+							{list([
+								"stack/ubuntu.svg",
+								"stack/babel.svg",
+								"stack/express.svg",
+								"stack/javascript.svg",
+								"stack/typescript.svg",
+								"stack/linux.svg",
+								"stack/stripe.svg",
+								"stack/mysql.svg",
+								"stack/npm.svg",
+								"stack/node.svg"
+							])}
 						</Marquee>
 						<br/><hr/><br/>
 					</Col>
@@ -129,13 +110,18 @@ export default function View(): JSX.Element {
 
 					<Col>
 						<Marquee style={{ margin: "16px 8px" }} speed={32}>
-							{ tools.map((src, key, { length }) =>
-								<MarqueeComponent key={key} width={1280/length}>
-									<div className="floating raised-8" style={{ width: 92, animationDuration: `${Math.random() * 7 + 3}s`, height: 92, borderRadius: "50%", background: "var(--palette_sheet_background)" }}>
-										<img style={{ margin: 20, width: 52, height: 52, borderRadius: 8 }} src={app.static(src)} alt=""/>
-									</div>
-								</MarqueeComponent>
-							)}
+							{list([
+								"stack/github.svg",
+								"stack/docker.svg",
+								"stack/photoshop.svg",
+								"stack/vscode.svg",
+								"stack/atom.svg",
+								"stack/firefox.svg",
+								"stack/chrome-dev.svg",
+								"stack/git.svg",
+								"stack/eslint.svg",
+								"stack/gitkraken.svg"
+							])}
 						</Marquee>
 					</Col>
 
