@@ -120,8 +120,10 @@ export default function View(): JSX.Element {
 								"stack/firefox.svg",
 								"stack/chrome-dev.svg",
 								"stack/git.svg",
+								"stack/insomnia.svg",
 								"stack/eslint.svg",
-								"stack/gitkraken.svg"
+								"stack/gitkraken.svg",
+								"stack/windows.svg"
 							])}
 						</Marquee>
 					</Col>
