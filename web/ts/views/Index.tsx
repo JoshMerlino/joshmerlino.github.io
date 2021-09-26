@@ -8,6 +8,7 @@ import MarqueeComponent from "components/MarqueeComponent";
 export const route = "/";
 
 function list(items: string[]) {
+	items.sort(() => Math.floor(Math.random() * items.length));
 	return items.map((src, key, { length }) =>
 		<MarqueeComponent key={key} width={1280/length}>
 			<div className="floating raised-8" style={{ width: 92, animationDuration: `${Math.random() * 7 + 3}s`, height: 92, borderRadius: "50%", background: "var(--palette_sheet_background)" }}>
@@ -109,7 +110,7 @@ export default function View(): JSX.Element {
 					</Col>
 
 					<Col>
-						<Marquee style={{ margin: "16px 8px" }} speed={32}>
+						<Marquee style={{ margin: "16px 8px" }} speed={48}>
 							{list([
 								"stack/github.svg",
 								"stack/docker.svg",
