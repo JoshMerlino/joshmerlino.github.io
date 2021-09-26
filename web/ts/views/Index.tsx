@@ -99,8 +99,9 @@ export default function View(): JSX.Element {
 						<br/><hr/><br/>
 					</Col>
 
+					<Col lg={6}></Col>
 					<Col lg={6}>
-						<article>
+						<article style={{ textAlign: "right" }}>
 							<h1>Back-end infrastructure</h1>
 							<p>Be assured that the infrastructure powering your app is resilient and fail resistant. The last thing you want is your infrastructure to fail. Failed infrastructure can lead to catastrophic loss in revenue. So don&apos;t let that happen.</p>
 						</article>
