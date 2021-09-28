@@ -40,7 +40,7 @@ export default function View(): JSX.Element {
 					<Col lg={4}>
 						<article style={{ textAlign: "center" }}>
 							<h2>😎 Modern 😎</h2>
-							<p>Not only are all my products completly themeable, they follow a design specification known as &quot;Material Design&quot;. Designed by Google back in 2015, Material Design is the final iteration for design language, always being modern and intuitive.</p>
+							<p>Not only are all my products completly themeable, they follow a design specification known as "Material Design". Designed by Google back in 2015, Material Design is the final iteration for design language, always being modern and intuitive.</p>
 						</article>
 					</Col>
 				</Row>
