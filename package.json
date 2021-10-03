@@ -95,7 +95,7 @@
 		"raw-loader": "^4.0.0",
 		"react": "^17.0.1",
 		"react-circular-progressbar": "^2.0.4",
-		"react-discord-invite": "^3.0.2",
+		"react-discord-invite": "^3.0.3",
 		"react-dom": "^17.0.1",
 		"react-fast-marquee": "^1.2.1",
 		"react-markdown": "4.3.1",
