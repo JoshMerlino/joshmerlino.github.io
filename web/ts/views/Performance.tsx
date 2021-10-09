@@ -38,7 +38,7 @@ export function PerformanceMonitor(): JSX.Element | null {
 		</VHCenter>
 	);
 
-	const state = apiResponse.nodes.filter(n => n.name.toLowerCase() === node)[0] || apiResponse.nodes[0];
+	const state = apiResponse.nodes.filter(n => n.name === node)[0] || apiResponse.nodes[0];
 	const { stats } = state;
 
 	return (
