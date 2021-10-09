@@ -1,15 +1,15 @@
 /* eslint @typescript-eslint/no-var-requires: 0 */
-import app from "../../src/app";
+import app from "src/app";
 import * as OfflinePluginRuntime from "offline-plugin/runtime";
+
+// Get client version
+export const client: string = require("raw-loader!../../../../../hash").default;
 
 // Ensure app is in production mode
 if (PRODUCTION) {
 
 	// Register a static asset caching service-worker
 	OfflinePluginRuntime.install();
-
-	// Get client version
-	const client: string = require("raw-loader!../../../../../hash").default;
 
 	// Get server version
 	(function update(): void {

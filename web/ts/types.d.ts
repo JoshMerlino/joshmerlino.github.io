@@ -27,6 +27,7 @@ declare interface AppManifest {
 }
 
 declare const APP_MANIFEST: AppManifest;
+declare const APP_CONFIG: any;
 
 declare interface IPerformanceSuccess {
 	success: boolean

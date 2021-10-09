@@ -8,6 +8,8 @@ import CopyWebpackPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import manifest from "./web/manifest";
+import fs from "fs";
+import YAML from "yaml";
 
 export = <Configuration>{
 	entry: [ "./web/__compile_cache/ts/index.js" ],
@@ -16,63 +18,66 @@ export = <Configuration>{
 		filename: "app/[name].[contenthash].js"
 	},
 	module: {
-		rules: [ {
-			test: /\.js$/,
-			use: {
-				loader: "babel-loader",
-				options: {
-					compact: true,
-					presets: [ "@babel/preset-react", "@babel/preset-env" ],
-					plugins: [ "@babel/plugin-proposal-class-properties" ]
-				}
-			}
-		}, {
-			test: /\.css/i,
-			use: [ {
-				loader: MiniCssExtractPlugin.loader,
-				options: {
-					publicPath: "../"
-				}
-			},
-			"css-loader"
-			]
-		}, {
-			test: /\.less/i,
-			use: [ {
-				loader: MiniCssExtractPlugin.loader,
-				options: {
-					publicPath: "../"
-				}
-			},
-			"css-loader",
+		rules: [
 			{
-				loader: "less-loader",
-				options: {
-					lessOptions: {
-						rewriteUrls: "local"
+				test: /\.js$/,
+				use: {
+					loader: "babel-loader",
+					options: {
+						compact: true,
+						presets: [ "@babel/preset-react", "@babel/preset-env" ],
+						plugins: [ "@babel/plugin-proposal-class-properties" ]
 					}
 				}
+			}, {
+				test: /\.(c|le)ss/i,
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							publicPath: "../"
+						}
+					},
+					{
+						loader: "css-loader"
+					},
+					{
+						loader: "less-loader",
+						options: {
+							lessOptions: {
+								rewriteUrls: "local"
+							}
+						}
+					}
+				]
+			}, {
+				test: /\.(woff|woff2|eot|ttf|otf)$/,
+				use: [
+					{
+						loader: "file-loader",
+						options: {
+							name: "static/[contenthash].[ext]"
+						}
+					}
+				]
+			}, {
+				include: path.resolve("web/static"),
+				use: [
+					{
+						loader: "file-loader",
+						options: {
+							name: "static/[contenthash].[ext]"
+						}
+					}
+				]
+			}, {
+				test: /\.(txt|md|pem|raw)$/,
+				use: [
+					{
+						loader: "raw-loader"
+					}
+				]
 			} ]
-		}, {
-			test: /\.(woff|woff2|eot|ttf|otf)$/,
-			use: [ {
-				loader: "file-loader",
-				options: {
-					name: "static/[contenthash].[ext]"
-				}
-			} ]
-		}, {
-			include: path.resolve("web/static"),
-			use: [ {
-				loader: "file-loader",
-				options: {
-					name: "static/[contenthash].[ext]"
-				}
-			} ]
-		}, {
-			test: /\.(txt|md|pem|raw)$/,
-			use: [ "raw-loader" ]
-		} ]
 	},
 
 	plugins: [
@@ -99,7 +104,8 @@ export = <Configuration>{
 			} ]
 		}),
 		new DefinePlugin({
-			APP_MANIFEST: JSON.stringify(manifest)
+			APP_MANIFEST: JSON.stringify(manifest),
+			APP_CONFIG: JSON.stringify(YAML.parse(fs.existsSync(path.resolve("config.yml")) ? fs.readFileSync(path.resolve("config.yml"), "utf8") : ""))
 		}),
 		new OfflinePlugin
 	],
@@ -114,6 +120,8 @@ export = <Configuration>{
 		alias: {
 			"static": path.resolve("./web/static"),
 			"views": path.resolve("./web/__compile_cache/ts/views"),
+			"runtime": path.resolve("./web/__compile_cache/ts/runtime"),
+			"src": path.resolve("./web/__compile_cache/ts/src"),
 			"components": path.resolve("./web/__compile_cache/ts/components")
 		}
 	}
