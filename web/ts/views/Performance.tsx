@@ -14,7 +14,7 @@ export function PerformanceMonitor(): JSX.Element | null {
 
 	// Initialize default state
 	const [ apiResponse, setApiResponse ] = useState<IPerformance>({ success: false });
-	const [ node, setNode ] = useState(qs.parse(location.search.split("?")[1]).node || "proxy");
+	const [ node, setNode ] = useState(qs.parse(location.search.split("?")[1]).node || "Proxy Server");
 
 	// Resolve method
 	const resolve = (): any => fetch("https://joshm.us.to/api/v2/performance").then(resp => resp.json())
@@ -65,7 +65,7 @@ export function PerformanceMonitor(): JSX.Element | null {
 
 				<Masonry options={{ transitionDuration: 0 }}>
 
-					{ state.name === "proxy" && <Performance
+					{ state.name === "Web Server" && <Performance
 						title="API"
 						properties={[
 							[ "Requests/second", apiResponse.api.req_per_second.toLocaleString() ],
