@@ -69,7 +69,7 @@ export function PerformanceMonitor(): JSX.Element | null {
 						title="API"
 						properties={[
 							[ "Requests/second", apiResponse.api.req_per_second.toLocaleString() ],
-							[ `Requests (${stats.os.uptime_formatted})`, apiResponse.api.req_counter.toLocaleString() ]
+							[ `Requests (Current logging period)`, apiResponse.api.req_counter.toLocaleString() ]
 						]}/> }
 
 					<Performance
