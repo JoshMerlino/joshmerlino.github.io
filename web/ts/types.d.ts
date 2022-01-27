@@ -130,13 +130,9 @@ declare interface IPerformanceSuccess {
 	}
 }
 
-declare type IPerformance = { success: false } | {
+declare type RequestDataAPI = { success: false } | {
 	success?: boolean;
-	api: Record<string, number>;
-	nodes: {
-		name: string;
-		stats: IPerformanceSuccess;
-	}[];
+	history: number[];
 };
 
 declare interface IRepository {
