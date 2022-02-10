@@ -32,7 +32,7 @@
 		"serve": "node ."
 	},
 	"devDependencies": {
-		"@babel/core": "^7.17.0",
+		"@babel/core": "^7.17.2",
 		"@babel/plugin-proposal-class-properties": "^7.16.5",
 		"@babel/plugin-transform-runtime": "^7.17.0",
 		"@babel/polyfill": "^7.12.1",
@@ -49,10 +49,10 @@
 		"@types/jquery": "^3.5.10",
 		"@types/mini-css-extract-plugin": "^2.4.0",
 		"@types/mkdirp": "^1.0.2",
-		"@types/node": "^17.0.14",
+		"@types/node": "^17.0.16",
 		"@types/optimize-css-assets-webpack-plugin": "^5.0.5",
 		"@types/prismjs": "^1.26.0",
-		"@types/react": "^17.0.37",
+		"@types/react": "^17.0.39",
 		"@types/react-dom": "^17.0.11",
 		"@types/react-router-dom": "^5.3.3",
 		"@types/terser-webpack-plugin": "^4.2.2",
