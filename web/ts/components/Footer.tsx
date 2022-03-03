@@ -46,9 +46,8 @@ export default function Component(): JSX.Element {
 							<li><a target="_blank" href="//dev.to/joshmerlino" rel="noreferrer">Dev Community</a></li>
 							<li><a target="_blank" href="//discord.gg/CCsRghE5" rel="noreferrer">Discord</a></li>
 							<li><a target="_blank" href="//github.com/JoshMerlino" rel="noreferrer">GitHub</a></li>
-							<li><a target="_blank" href="//instagram.com/josh.merlino/" rel="noreferrer">Instagram</a></li>
 							<li><a target="_blank" href="//npmjs.com/~jmer05" rel="noreferrer">npm</a></li>
-							<li><a target="_blank" href="//snapchat.com/add/josh.m3r1in0" rel="noreferrer">Snapchat</a></li>
+							<li><a target="_blank" href="//snapchat.com/add/josh.merlino" rel="noreferrer">Snapchat</a></li>
 							<li><a target="_blank" href="//stackoverflow.com/users/7356221" rel="noreferrer">StackOverflow</a></li>
 							<li><a target="_blank" href="//twitter.com/josh_merlino" rel="noreferrer">Twitter</a></li>
 						</ul>
