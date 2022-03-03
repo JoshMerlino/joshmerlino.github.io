@@ -1,9 +1,9 @@
+import MarqueeComponent from "components/MarqueeComponent";
+import { Col, Container, Row } from "photoncss/lib/react";
 import React from "react";
-import { Container, Row, Col, Card } from "photoncss/lib/react";
 import Marquee from "react-fast-marquee";
 import HomeMain from "../components/Block/HomeMain";
 import app from "../src/app";
-import MarqueeComponent from "components/MarqueeComponent";
 
 export const route = "/";
 
@@ -19,6 +19,7 @@ function list(items: string[]) {
 }
 
 export default function View(): JSX.Element {
+
 	return (
 		<>
 			<HomeMain/>
