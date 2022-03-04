@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Footer, FooterCopyright, Container, Row, Col } from "photoncss/lib/react";
+import { Col, Container, Footer, FooterCopyright, Row } from "photoncss/lib/react";
+import React, { useEffect, useState } from "react";
 import DiscordInvite from "react-discord-invite";
-import app from "../src/app";
+import { Link } from "react-router-dom";
 
 export function MoTD(): JSX.Element | null {
 
@@ -13,7 +12,7 @@ export function MoTD(): JSX.Element | null {
 
 	// Have state sync with server every second while component is mounted
 	useEffect(function() {
-		if (state === null) fetch("https://joshm.us.to/api/v1/motd").then(resp => resp.json())
+		if (state === null) fetch("https://api.joshmerlino.me/v1/motd").then(resp => resp.json())
 			.then(setState);
 	});
 
