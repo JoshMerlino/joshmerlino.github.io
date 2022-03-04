@@ -14,6 +14,18 @@ export const options: ApexOptions = {
 			show: false
 		}
 	},
+	chart: {
+		toolbar: {
+			tools: {
+				pan: false,
+				download: false,
+				zoom: false,
+				reset: false,
+				zoomin: false,
+				zoomout: false
+			}
+		}
+	},
 	xaxis: {
 		labels: {
 			show: false
