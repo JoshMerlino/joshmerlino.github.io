@@ -1,5 +1,6 @@
 /* eslint @typescript-eslint/no-explicit-any: off */
 import APIRequestMonitor from "components/APIRequestMonitor";
+import ServerPerformanceMonitor from "components/ServerPerformanceMonitor";
 import Photon from "photoncss";
 import { Icon, Toolbar, ToolbarActions, ToolbarTitle } from "photoncss/lib/react";
 import React from "react";
@@ -20,6 +21,7 @@ export default function View(): JSX.Element {
 				</ToolbarActions>
 			</Toolbar>
 			<APIRequestMonitor/>
+			<ServerPerformanceMonitor/>
 		</>
 	);
 }
