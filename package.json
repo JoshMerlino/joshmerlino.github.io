@@ -117,7 +117,7 @@
 		"workbox-webpack-plugin": "^6.5.1"
 	},
 	"dependencies": {
-		"chalk": "^5.0.0",
+		"chalk": "^5.0.1",
 		"async-require-context": "^1.8.13",
 		"compression": "^1.7.4",
 		"cookie-parser": "^1.4.6",
