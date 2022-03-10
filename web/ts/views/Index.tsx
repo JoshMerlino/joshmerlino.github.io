@@ -71,6 +71,7 @@ export default function View(): JSX.Element {
 								"stack/less.svg",
 								"stack/git.svg",
 								"stack/npm.svg",
+								"stack/tailwind.svg",
 								"stack/css3.svg"
 							])}
 						</Marquee>
@@ -89,6 +90,7 @@ export default function View(): JSX.Element {
 						<Marquee style={{ margin: "16px 8px" }} speed={32} direction="right">
 							{list([
 								"stack/ubuntu.svg",
+								"stack/vite.svg",
 								"stack/babel.svg",
 								"stack/express.svg",
 								"stack/javascript.svg",
