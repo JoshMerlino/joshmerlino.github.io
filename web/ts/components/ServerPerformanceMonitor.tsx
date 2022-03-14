@@ -17,7 +17,7 @@ export default function ServerPerformanceMonitor(): JSX.Element | null {
 	return <Container>
 		<Row>
 			{state.nodes.map(node =>
-				<Col sm={12} lg={6}>
+				<Col sm={12} lg={4}>
 
 					<h1>{node.name}</h1>
 
