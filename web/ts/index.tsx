@@ -9,6 +9,7 @@ import "./runtime/util/offlineInstaller";
 
 // Import stylesheets
 import "photoncss/dist/photon.css";
+import "react-discord-invite/dist/style.css";
 import "../../styles/main.less";
 import ErrorBoundry from "./runtime/ErrorBoundry";
 
