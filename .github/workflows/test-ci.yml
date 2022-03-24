@@ -39,7 +39,7 @@ jobs:
       # Install node modules
       - name: Install node modules
         run: |
-          npm ci -f
+          npm ci
 
       # Attempt to build
       - name: Build module
