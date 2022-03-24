@@ -1,0 +1,101 @@
+@import "./theme.less";
+@import "./markdown.less";
+@import "./progress.less";
+
+html {
+	overflow-x: hidden;
+}
+
+body {
+	margin: 0;
+	overflow: visible;
+}
+
+.title h3 {
+    display: inline-block;
+    padding: 12px 0;
+    margin: 0;
+    margin-bottom: 4px;
+    border-bottom: 2px solid var(--palette_primary_normal);
+    border-image-slice: 1;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    font-size: 20px;
+    font-weight: 500;
+	margin-left: 8px;
+}
+
+.block p {
+	color: inherit;
+}
+
+.photon-toolbar i.waves-effect .waves-ripple {
+	background: fade(#fff, 20%);
+}
+
+footer.footer {
+	margin-top: 24px!important;
+}
+
+.DiscordInvite-wrapper {
+	padding: 8px;
+	@media (max-width: 600px) {
+		padding: 8px 3px
+	}
+}
+
+.photon-toolbar-spacer {
+	display: none;
+}
+
+#home-main-block {
+	background: var(--palette_header_background);
+	color: var(--palette_header_text);
+	width: calc(100% + 8px);
+	padding: 64px 0;
+	.photon-toolbar {
+		position: absolute;
+		bottom: 0;
+		top: auto;
+		left: 0;
+		&.fixed {
+			top: 0;
+			bottom: auto;
+			position: fixed;
+		}
+		&:not(.fixed) {
+			width: calc(100% - 8px);
+		}
+	}
+}
+
+.badge {
+	border-radius: var(--shape);
+	border: 1px solid var(--palette_sheet_background);
+	color: var(--palette_sheet_body);
+	padding: 0 8px;
+}
+
+a[href] {
+	color: var(--palette_primary_normal);
+}
+
+.marquee-container {
+	.overlay {
+		--gradient-color: var(--palette_body_background),transparent!important;
+		--gradient-width: 64px!important;
+	}
+}
+
+.floating { 
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
+}

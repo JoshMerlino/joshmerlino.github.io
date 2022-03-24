@@ -6,6 +6,7 @@ import manifest from "./app/manifest.json";
 import { VitePWA } from "vite-plugin-pwa";
 import htmlPlugin from "vite-plugin-html-config";
 import path from "path";
+import plainText from "vite-plugin-plain-text";
 
 config();
 
@@ -19,6 +20,7 @@ export default defineConfig({
 			scope: "/",
 			manifest: <unknown>manifest
 		}),
+		plainText(/\.md$/),
 		htmlPlugin({
 			metas: [ {
 				name: "description",

@@ -27,3 +27,7 @@ declare type ApplicationInfo = {
 }
 
 declare const APP_MANIFEST: ApplicationInfo;
+
+declare module "*.md" {
+    export const plainText: string;
+}

@@ -28,7 +28,7 @@ jobs:
 
       - name: Build
         run: |
-          npm ci
+          npm ci -f
           npm run build
 
       - name: Configure git user
