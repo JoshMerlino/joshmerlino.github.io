@@ -26,10 +26,10 @@ export default function View(): JSX.Element {
 				  src="https://docs.google.com/forms/d/e/1FAIpQLScHRHVAYTXpQz9Oc2sKls3_jL8eFFnlvPQw1fQeivbEszt1Aw/viewform?embedded=true"
 				  width="640"
 				  height="1140"
-				  frameBorder={0}
-				  marginHeight={0}
-				  marginWidth={0}
-				  style={{ margin: "0 auto", display: "block" }}>Loading…</iframe>
+				  frameBorder={ 0 }
+				  marginHeight={ 0 }
+				  marginWidth={ 0 }
+				  style={ { margin: "0 auto", display: "block" } }>Loading…</iframe>
 
 			</Container>
 

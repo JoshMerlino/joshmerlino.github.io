@@ -34,54 +34,54 @@ export default function View(): JSX.Element {
 
 				<Row>
 
-					<Col lg={4} xl={3}>
+					<Col lg={ 4 } xl={ 3 }>
 						<h1>Code Stats</h1>
-						<img style={{ margin: 8, width: "calc(100% - 16px)" }} src="https://github-readme-stats.vercel.app/api/top-langs/?username=JoshMerlino&layout=compact&title_color=191919&langs_count=24" alt=""/>
+						<img style={ { margin: 8, width: "calc(100% - 16px)" } } src="https://github-readme-stats.vercel.app/api/top-langs/?username=JoshMerlino&layout=compact&title_color=191919&langs_count=24" alt=""/>
 					</Col>
 
-					<Col lg={8} xl={9}>
+					<Col lg={ 8 } xl={ 9 }>
 						<h1>Templates</h1>
-						<Masonry options={{ transitionDuration: 0 }}>
+						<Masonry options={ { transitionDuration: 0 } }>
 							{
 								repos
 									.filter(repo => repo.is_template)
-									.map((repo, key) => <Repository key={key} {...repo}/>)
+									.map((repo, key) => <Repository key={ key } { ...repo }/>)
 							}
 						</Masonry>
 						<hr/>
 						<h1>npm Packages</h1>
-						<Masonry options={{ transitionDuration: 0 }}>
+						<Masonry options={ { transitionDuration: 0 } }>
 							{
 								repos
 									.filter(repo => repo.homepage?.match(/npmjs/))
-									.map((repo, key) => <Repository key={key} {...repo}/>)
+									.map((repo, key) => <Repository key={ key } { ...repo }/>)
 							}
 						</Masonry>
 						<hr/>
 						<h1>My Repositorys</h1>
-						<Masonry options={{ transitionDuration: 0 }}>
+						<Masonry options={ { transitionDuration: 0 } }>
 							{
 								repos
 									.filter(repo => !repo.fork && !repo.archived && !repo.is_template)
-									.map((repo, key) => <Repository key={key} {...repo}/>)
+									.map((repo, key) => <Repository key={ key } { ...repo }/>)
 							}
 						</Masonry>
 						<hr/>
 						<h1>Forked Repositorys</h1>
-						<Masonry options={{ transitionDuration: 0 }}>
+						<Masonry options={ { transitionDuration: 0 } }>
 							{
 								repos
 									.filter(repo => repo.fork && !repo.archived)
-									.map((repo, key) => <Repository key={key} {...repo}/>)
+									.map((repo, key) => <Repository key={ key } { ...repo }/>)
 							}
 						</Masonry>
 						<hr/>
 						<h1>Archived Repositorys</h1>
-						<Masonry options={{ transitionDuration: 0 }}>
+						<Masonry options={ { transitionDuration: 0 } }>
 							{
 								repos
 									.filter(repo => repo.archived)
-									.map((repo, key) => <Repository key={key} {...repo}/>)
+									.map((repo, key) => <Repository key={ key } { ...repo }/>)
 							}
 						</Masonry>
 					</Col>
