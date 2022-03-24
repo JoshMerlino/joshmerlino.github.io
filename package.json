@@ -1,7 +1,7 @@
 {
-    "name": "vite-project",
+    "name": "Josh Merlino",
     "version": "1.0.0",
-    "description": "Create fast single-page progressive-web-apps using PhotonCSS 12, React and TypeScript.",
+    "description": "Hi, I'm Josh. Looks like you found my home on the internet.",
     "main": "lib/src",
     "types": "lib/src",
     "author": "Josh Merlino",

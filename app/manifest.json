@@ -1,8 +1,8 @@
 {
     "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-    "name": "My App",
-    "short_name": "My App",
-    "description": "My App description",
+    "name": "Josh Merlino Web Services",
+    "short_name": "JMWS",
+    "description": "Hi, I'm Josh. Looks like you found my home on the internet.",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
     "orientation": "portrait",
