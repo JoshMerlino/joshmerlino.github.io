@@ -54,7 +54,7 @@
         "@typescript-eslint/eslint-plugin": "^5.17.0",
         "@typescript-eslint/parser": "^5.17.0",
         "@vitejs/plugin-react": "^1.0.7",
-        "apexcharts": "^3.34.0",
+        "apexcharts": "^3.35.0",
         "chokidar": "^3.5.3",
         "concurrently": "^7.0.0",
         "dayjs": "^1.11.0",
