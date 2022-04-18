@@ -68,7 +68,7 @@
         "markdown-it": "^12.3.2",
         "nodemon": "^2.0.15",
         "photoncss": "^13.5.1",
-        "prismjs": "^1.27.0",
+        "prismjs": "^1.28.0",
         "react": "^18.0.0",
         "react-apexcharts": "^1.4.0",
         "react-circular-progressbar": "^2.0.4",
