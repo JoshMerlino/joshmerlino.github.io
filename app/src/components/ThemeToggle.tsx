@@ -17,12 +17,14 @@ export default function ThemeToggle(): JSX.Element {
 	}, [ state ]);
 
 	useEffect(function() {
-		document.onkeydown = function (event) {
+		function keydown(event: KeyboardEvent) {
 			if (event.key === "F10") {
 				event.preventDefault();
 				nextState();
 			}
-		};
+		}
+		document.addEventListener("keydown", keydown);
+		return () => document.removeEventListener("keydown", keydown);
 	});
 
 	function nextState() {
@@ -41,7 +43,7 @@ export default function ThemeToggle(): JSX.Element {
 	}
 
 	return (
-		<div onClick={ nextState } className="relative m-2 rounded-full h-8 py-1 px-4 text-2xl inline-flex w-48 items-center font-semibold cursor-pointer bg-zinc-800/60 hover:bg-zinc-700/60 text-white ml-auto z-[3] border-[1px] border-neutral-700/60 backdrop-blur-lg">
+		<div onClick={ nextState } className="relative m-2 rounded-full h-8 py-1 px-4 text-2xl inline-flex items-center font-semibold cursor-pointer bg-zinc-800/60 hover:bg-zinc-700/60 text-white ml-auto z-[3] border-[1px] border-neutral-700/60 backdrop-blur-lg">
 			{ state === "AUTO" && <MdOutlineBrightnessAuto className="mr-2"/> }
 			{ state === "DARK" && <MdOutlineDarkMode className="mr-2"/> }
 			{ state === "LIGHT" && <BsBrightnessHigh className="mr-2"/> }
