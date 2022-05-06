@@ -21,8 +21,9 @@ export default function HomePageBanner(): JSX.Element {
 		ref.current!.style.backgroundColor = `#18191c${Math.min(window.scrollY/banner.current!.clientHeight * 255, 255).toString(16)
 			.padStart(2, "0")
 			.split(".")[0]}`;
-		banner.current!.style.top = -banner.current!.clientHeight + 64 + "px";
-		if (window.scrollY > banner.current!.clientHeight - 64) {
+		banner.current!.style.top = -banner.current!.clientHeight + document.getElementById("toolbar")!.clientHeight + "px";
+		banner.current!.style.paddingBottom =document.getElementById("toolbar")!.clientHeight + "px";
+		if (window.scrollY > banner.current!.clientHeight - document.getElementById("toolbar")!.clientHeight) {
 			banner.current!.classList.add("shadow-xl");
 			banner.current!.classList.add("bg-header");
 		} else {
@@ -46,11 +47,11 @@ export default function HomePageBanner(): JSX.Element {
 
 	return (
 		<>
-			<div className="py-16 min-h-[440px] sticky overflow-hidden z-[3]" ref={ banner }>
+			<div className="pt-16 min-h-[440px] sticky overflow-hidden z-[3]" ref={ banner }>
 				<div className="bg-banner absolute top-0 left-0 w-full h-full" ref={ ref } style={ { transform: `scale(${MAX})`} }></div>
-				<div className="mx-auto flex sm:max-w-full md:max-w-[80%] max-w-[90%] w-[1280px] px-12 z-[4] relative">
-					<img src={ manifest.base + "bitmoji/bitmoji-medres.png" } alt="" className="bg-header/40 select-none rounded-full bg-black/10 max-h-[192px] mx-4" />
-					<div className="mx-14 my-1">
+				<div className="mx-auto flex min-w-[369px] max-w-[80%] lg:max-w-[90%] w-[1280px] z-[4] relative flex-wrap">
+					<img src={ manifest.base + "bitmoji/bitmoji-medres.png" } alt="" className="bg-header/40 select-none rounded-full bg-black/10 max-h-[192px] mx-auto lg:mx-4" />
+					<div className="mx-auto lg:mx-14 my-1">
 						<h1 className="text-4xl text-white border-b-2 border-blue-500 py-3 font-unisans tracking-[10px] inline-block">{ APP_MANIFEST.name }</h1>
 						<p className="tracking-wide text-white font-unisans text-2xl pt-3 tracking-[2.5px]">{ manifest.description }</p>
 						<div className="-mx-2 py-2">
@@ -58,7 +59,7 @@ export default function HomePageBanner(): JSX.Element {
 						</div>
 					</div>
 				</div>
-				<div className="absolute bottom-0 left-0 w-full h-16">
+				<div className="absolute bottom-0 left-0 w-full min-h-16" id="toolbar">
 					<Toolbar/>
 				</div>
 			</div>

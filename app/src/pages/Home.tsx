@@ -7,12 +7,11 @@ export const path = "/";
 
 export default function Home() {
 	return (
-		<div className="bg-gray-200 dark:bg-zinc-800 min-h-full w-full">
+		<div className="bg-gray-200 dark:bg-zinc-800 min-h-full w-full pb-[200px] -mb-[200px]">
 			<HomePageBanner/>
 			<PastProjects/>
 			<Waves/>
 			<FavoriteStack/>
-			<Waves/>
 		</div>
 	);
 }
