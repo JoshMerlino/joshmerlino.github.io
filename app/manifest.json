@@ -1,8 +1,8 @@
 {
     "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-    "name": "My App",
-    "short_name": "My App",
-    "description": "My App description",
+    "name": "Josh Merlino",
+    "short_name": "Josh Merlino",
+    "description": "Web Design/Development",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
     "orientation": "portrait",
@@ -10,7 +10,7 @@
     "id": "0x16a190429da311ec8cf000155d1b1170",
     "icons": [
         {
-            "src": "/favicon.svg",
+            "src": "/favicon.png",
             "sizes": "1024x1024",
             "type": "image/svg",
             "purpose": "any"
@@ -22,7 +22,7 @@
             "purpose": "any"
         },
         {
-            "src": "/maskable_icon.svg",
+            "src": "/maskable_icon.png",
             "sizes": "1024x1024",
             "type": "image/svg",
             "purpose": "maskable"

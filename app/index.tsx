@@ -6,7 +6,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { registerSW } from "virtual:pwa-register";
 import { base } from "./manifest.json";
 import ErrorBoundary from "./src/runtime/ErrorBoundry";
-import "styles/index.css";
+import "styles/index.less";
+import Footer from "./src/components/Footer";
 
 if ("serviceWorker" in navigator && !/localhost/.test(window.location.toString())) registerSW({
 	immediate: true
@@ -30,6 +31,7 @@ ReactDOM.render(
 							element={ <page.default/> }/>
 						) }
 					</Routes>
+					<Footer/>
 				</BrowserRouter>
 				{ !PRODUCTION && <ReactQueryDevtools/> }
 			</QueryClientProvider>
