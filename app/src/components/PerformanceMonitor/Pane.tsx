@@ -44,14 +44,14 @@ export default function Pane({ children, active = false, state, ...props }: Pane
 
 	return (
 		<div>
-			<div className={ classnames("hover:bg-sky-500/10 -ml-[240px] dark:text-white w-[240px] h-20 flex border-y-[1px] z-[5] relative", active ? "bg-white hover:bg-white  dark:bg-zinc-700 border-neutral-500/20" : "border-transparent") } onClick={ props.onClick }>
+			<div className={ classnames("hover:bg-sky-500/10 -ml-[240px] dark:text-white w-[240px] h-20 flex border-y-[1px] z-[5] relative", active ? "bg-white hover:bg-white dark:bg-zinc-700 border-neutral-500/20" : "border-transparent") } onClick={ props.onClick }>
 				<ProgressCircle value={ state.usageNow } color={ state.color }/>
 				<div className="basis-full">
 					<p className="text-xl py-2 px-4">{ state.title }</p>
 					<p className="px-4">{ Math.floor(state.usageNow * 100) }%</p>
 				</div>
 			</div>
-			<div className={ classnames("top-0 left-0 right-0 bottom-0 absolute dark:bg-zinc-700 bg-white p-4 flex flex-col border-[1px] border-neutral-500/20 z-[2] -ml-[1px]", !active && "hidden") }>
+			<div className={ classnames("top-0 left-0 right-0 bottom-0 absolute dark:bg-zinc-700 bg-white p-4 flex flex-col border-[1px] border-neutral-500/20 z-[2] -ml-[1px] border-b-0 border-r-0", !active && "hidden") }>
 				<div className="flex items-center dark:text-white">
 					<h1 className="text-3xl">{ state.title }</h1>
 					<h3 className="text-xl grow text-right">{ state.subtitle }</h3>
@@ -68,7 +68,7 @@ export default function Pane({ children, active = false, state, ...props }: Pane
 				</div>
 				<div className="grid grid-cols-2">
 					<div>
-						{ state.info.left.map((line, key) => line === null ? <div className="py-2"/> : <div className="inline-block" key={ key }>
+						{ state.info.left.map((line, key) => line === null ? <div className="py-2" key={ key }/> : <div className="inline-block" key={ key }>
 							<p className="text-gray-700 text-sm font-[roboto] pr-8 dark:text-gray-300 ">{ line.name }</p>
 							<p className="text-gray-700 text-lg font-[roboto] pr-8 font-medium dark:text-white">{ line.value_formatted }</p>
 						</div>) }

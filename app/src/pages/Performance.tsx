@@ -27,9 +27,9 @@ export default function PerformancePage() {
 			</div>
 			<div className="mx-auto flex flex-col max-w-full md:max-w-[80%] max-w-[90%] w-[1280px] py-8 lg:py-16">
 				<div>
-					<APIRequestMonitor/>
-					<PerformanceMonitor hostname="http://joshmerlino.me:8310"/>
-					<PerformanceMonitor hostname="http://joshmerlino.me:8311"/>
+					{ /* <APIRequestMonitor/> */ }
+					<PerformanceMonitor hostname="10.16.0.10,10.16.0.11"/>
+					<PerformanceMonitor hostname="10.16.0.12,10.16.0.13"/>
 				</div>
 			</div>
 		</div>
