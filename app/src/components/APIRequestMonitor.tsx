@@ -95,7 +95,7 @@ export default function APIRequestMonitor(): JSX.Element | null {
 	} ];
 
 	return (
-		<div className="bg-white dark:bg-zinc-700 w-full rounded-2xl overflow-hidden my-4 pr-3 py-2">
+		<div className="bg-white dark:bg-zinc-700 w-full rounded-2xl overflow-hidden my-4 pr-3 py-2 shadow-md">
 			<Chart options={ options } series={ series } type="line" height={ 220 } />
 		</div>
 	);

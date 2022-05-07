@@ -21,7 +21,6 @@ export const options: ApexCharts.ApexOptions = {
 	},
 	xaxis: {
 		min: 0,
-		max: 60,
 		labels: {
 			show: false
 		},
