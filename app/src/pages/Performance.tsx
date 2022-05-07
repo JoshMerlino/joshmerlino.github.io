@@ -26,11 +26,8 @@ export default function PerformancePage() {
 			</div>
 			<div className="mx-auto flex flex-col max-w-full md:max-w-[80%] max-w-[90%] w-[1280px] py-8 lg:py-16">
 				<div>
-					<h1 className="ml-auto text-3xl font-unisans tracking-widest pb-2 dark:text-white">Web Server</h1>
-					<PerformanceMonitor hostname="http://api.joshmerlino.me:8310"/>
-					<br />
-					<h1 className="ml-auto text-3xl font-unisans tracking-widest pb-2 dark:text-white">Compute Server</h1>
-					<PerformanceMonitor hostname="http://api.joshmerlino.me:8311"/>
+					<PerformanceMonitor hostname="//joshmerlino.me:8310"/>
+					<PerformanceMonitor hostname="//joshmerlino.me:8311"/>
 				</div>
 			</div>
 		</div>

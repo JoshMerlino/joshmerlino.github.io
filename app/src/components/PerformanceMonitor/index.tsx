@@ -8,11 +8,19 @@ export default function PerformanceMonitor({ hostname }: Props): JSX.Element {
 	const setPane = (id: string) => setActiveId(id);
 	const [ state, setState ] = useState<Performance.State | null>(null);
 
+	let mounted = false;
+	useEffect(function() {
+		mounted = true;
+		return () => {
+			mounted = false;
+		};
+	}, []);
+
 	useEffect(function refetch() {
 		fetch(hostname + "/api/v3/performance")
 			.then(resp => resp.json())
 			.then(setState)
-			.then(() => setTimeout(refetch, 1000));
+			.then(() => setTimeout(() => mounted && refetch(), 1000));
 	}, []);
 
 	console.log(state);

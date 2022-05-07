@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import express from "express";
 import duration from "dayjs/plugin/duration";
 import { Request, Response } from "express";
 import osu, { os } from "node-os-utils";
@@ -6,11 +7,29 @@ import prettyBytes from "pretty-bytes";
 import si from "systeminformation";
 dayjs.extend(duration);
 
-export const route = [
-	"v3/performance"
-];
+const app = express();
+app.get("/v3/performance", function api(_req: Request, res: Response): void {
+	(function wait(){
+		let isReady = true;
+		for (const section in sections) isReady = isReady && sections[section] !== null;
+		if (isReady) {
+			res.json({
+				success: true,
+				sections
+			});
+		} else setTimeout(wait, 10);
+	}());
+});
+app.listen(process.env.PORT);
+console.log("running on :" + process.env.PORT);
 
-const sections: Record<string, any> = {};
+const sections: Record<string, unknown> = {
+	cpu: null,
+	ram: null,
+	disk: null,
+	network: null
+};
+
 const cpuUsage = Array(60).fill(0);
 const memUsage = Array(60).fill(0);
 const diskUsage = Array(60).fill(0);
@@ -18,7 +37,7 @@ const netUsage = Array(60).fill(0);
 
 (async function stat() {
 	const cpu = await si.cpu();
-	const usageNow = await osu.cpu.usage() / osu.cpu.count();
+	const usageNow = await osu.cpu.usage() / osu.cpu.count() / 100;
 	cpuUsage.push(usageNow);
 	cpuUsage.shift();
 	sections.cpu = {
@@ -67,15 +86,21 @@ const netUsage = Array(60).fill(0);
 			} ]
 		}
 	};
+	setTimeout(stat, 1000);
+}());
 
+(async function stat() {
 	const mem = await si.mem();
-	memUsage.push(mem.used / mem.total);
+	const memlayout = await si.memLayout();
+	const usageNow = mem.used / mem.total;
+	memUsage.push(usageNow);
 	memUsage.shift();
 	sections.ram = {
 		title: "Memory",
-		subtitle: `${cpu.manufacturer} ${cpu.brand}`,
+		subtitle: prettyBytes(memlayout[0].size),
 		description: "Memory usage",
 		usageHistory: memUsage,
+		usageNow,
 		color: "#a855f7",
 		info: {
 			left: [ {
@@ -113,14 +138,20 @@ const netUsage = Array(60).fill(0);
 		}
 	};
 
+	setTimeout(stat, 1000);
+}());
+
+(async function stat() {
 	const disks = await si.fsSize();
-	diskUsage.push(disks.reduce((a, b) => a + b.used, 0) / disks.reduce((a, b) => a + b.size, 0));
+	const usageNow = disks.reduce((a, b) => a + b.used, 0) / disks.reduce((a, b) => a + b.size, 0);
+	diskUsage.push(usageNow);
 	diskUsage.shift();
 	sections.disk = {
 		title: "Disk",
 		subtitle: "",
 		description: "Disk usage",
 		usageHistory: diskUsage,
+		usageNow,
 		color: "#22c55e",
 		info: {
 			left: [ {
@@ -135,25 +166,32 @@ const netUsage = Array(60).fill(0);
 			right: []
 		}
 	};
+	setTimeout(stat, 1000);
+}());
 
-	const interfaces = await si.networkStats();
-	netUsage.push(interfaces.reduce((a, b) => a + b.rx_sec, 0) / 1000000000);
+(async function stat() {
+	const stats = await si.networkStats();
+	const interfaces = (await si.networkInterfaces()).filter(i => i.ip4.startsWith("10.16") || i.ip4.startsWith("192.168.75"));
+	const speed = interfaces[0].speed * 1000000;
+	const usageNow = stats.reduce((a, b) => a + b.rx_sec * 8, 0) / speed;
+	netUsage.push(usageNow);
 	netUsage.shift();
 	sections.network = {
 		title: "Network",
-		subtitle: "",
+		subtitle: prettyBytes(speed, { bits: true }),
 		description: "Network usage",
 		usageHistory: netUsage,
+		usageNow,
 		color: "#eab308",
 		info: {
 			left: [ {
-				name: "Ingress",
-				value: interfaces.reduce((a, b) => a + b.rx_sec, 0),
-				value_formatted: prettyBytes(interfaces.reduce((a, b) => a + b.rx_sec, 0), { bits: true }) + "/s"
+				name: "Download",
+				value: stats.reduce((a, b) => a + b.rx_sec * 8, 0),
+				value_formatted: prettyBytes(stats.reduce((a, b) => a + b.rx_sec * 8, 0), { bits: true }) + "/s"
 			}, {
-				name: "Egress",
-				value: interfaces.reduce((a, b) => a + b.tx_sec, 0),
-				value_formatted: prettyBytes(interfaces.reduce((a, b) => a + b.tx_sec, 0), { bits: true }) + "/s"
+				name: "Upload",
+				value: stats.reduce((a, b) => a + b.tx_sec * 8, 0),
+				value_formatted: prettyBytes(stats.reduce((a, b) => a + b.tx_sec * 8, 0), { bits: true }) + "/s"
 			} ],
 			right: []
 		}
@@ -161,10 +199,3 @@ const netUsage = Array(60).fill(0);
 
 	setTimeout(stat, 1000);
 }());
-
-export default function api(_req: Request, res: Response): void {
-	res.json({
-		success: true,
-		sections
-	});
-}

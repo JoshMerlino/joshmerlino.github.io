@@ -24,7 +24,8 @@
         "preview": "vite preview",
         "dev": "concurrently \"npm:watch-*\" \"vite\"",
         "start": "node .",
-        "build": "tsc -p tsconfig.node.json && tsc && vite build && cp public_html/index.html public_html/404.html"
+        "build": "tsc -p tsconfig.node.json && tsc && vite build && cp public_html/index.html public_html/404.html",
+        "bin": "npx tsc --esModuleInterop performance.ts && echo '#!/usr/bin/env node' | cat - performance.js > performance && chmod +x ./performance && mkdir bin && mv ./performance ./bin/ && rm performance.js"
     },
     "dependencies": {
         "async-require-context": "^1.8.13",

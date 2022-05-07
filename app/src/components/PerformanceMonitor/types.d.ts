@@ -1,6 +1,7 @@
 declare namespace Performance {
     type State = Record<string, HardwareSection>;
     interface HardwareSection {
+		usageNow: number;
 		usageHistory: number[];
         title: string;
         subtitle: string;
