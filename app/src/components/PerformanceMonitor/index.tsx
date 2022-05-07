@@ -23,10 +23,8 @@ export default function PerformanceMonitor({ hostname }: Props): JSX.Element {
 			.then(() => setTimeout(() => mounted && refetch(), 1000));
 	}, []);
 
-	console.log(state);
-
 	return (
-		<div className="bg-gray-100 w-full flex rounded-2xl overflow-hidden">
+		<div className="bg-gray-100 dark:bg-zinc-700/50 w-full flex rounded-2xl overflow-hidden my-4">
 			<div className="ml-[240px] bg-white grow relative h-[586px] relative">
 				{ Object.values(state?.sections || {}).map((section, key) => <Pane key={ key } onClick={ () => setPane(section.title) } active={ active === section.title || key === 0 && active === "" } state={ section }/>) }
 			</div>

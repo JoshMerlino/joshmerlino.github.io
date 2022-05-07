@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import APIRequestMonitor from "../components/APIRequestMonitor";
 import PerformanceMonitor from "../components/PerformanceMonitor";
 import Toolbar from "../components/Toolbar";
 
@@ -26,6 +27,7 @@ export default function PerformancePage() {
 			</div>
 			<div className="mx-auto flex flex-col max-w-full md:max-w-[80%] max-w-[90%] w-[1280px] py-8 lg:py-16">
 				<div>
+					<APIRequestMonitor/>
 					<PerformanceMonitor hostname="//joshmerlino.me:8310"/>
 					<PerformanceMonitor hostname="//joshmerlino.me:8311"/>
 				</div>

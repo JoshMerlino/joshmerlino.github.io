@@ -19,7 +19,7 @@ export default function ProgressCircle({ value, color }: ProgressCircleProps): J
 					cy="32"
 					fill="transparent"
 					strokeWidth={ 4 }
-					className="stroke-gray-300"></circle>
+					className="stroke-gray-300 dark:stroke-zinc-600"></circle>
 				<circle
 					r="28"
 					cx="32"
