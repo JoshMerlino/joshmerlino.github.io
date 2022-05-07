@@ -25,8 +25,8 @@ export default function PerformancePage() {
 		let isMounted = true;
 		(function frame(){
 			if (isMounted) requestAnimationFrame(frame);
-			if (window.scrollY > 0) toolbar.current!.classList.add("shadow-md");
-			else toolbar.current!.classList.remove("shadow-md");
+			if (window.scrollY > 0) toolbar.current!.classList.add("shadow-xl");
+			else toolbar.current!.classList.remove("shadow-xl");
 		}());
 		return () => {
 			isMounted = false;
