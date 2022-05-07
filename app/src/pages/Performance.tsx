@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import APIRequestMonitor from "../components/APIRequestMonitor";
 import PerformanceMonitor from "../components/PerformanceMonitor";
 import Toolbar from "../components/Toolbar";
@@ -20,9 +20,22 @@ export default function PerformancePage() {
 		};
 	});
 
+	const toolbar = useRef<HTMLDivElement>(null);
+	useEffect(function() {
+		let isMounted = true;
+		(function frame(){
+			if (isMounted) requestAnimationFrame(frame);
+			if (window.scrollY > 0) toolbar.current!.classList.add("shadow-md");
+			else toolbar.current!.classList.remove("shadow-md");
+		}());
+		return () => {
+			isMounted = false;
+		};
+	});
+
 	return (
 		<div className="bg-gray-200 dark:bg-zinc-800 w-full pb-[200px] -mb-[200px]" style={ { minHeight } }>
-			<div className="sticky top-0 min-h-16 left-0 w-full bg-header shadow-md z-[8]">
+			<div className="sticky top-0 min-h-16 left-0 w-full bg-header z-[8] transition-shadow" ref={ toolbar }>
 				<Toolbar>Server Performance</Toolbar>
 			</div>
 			<div className="mx-auto flex flex-col max-w-full md:max-w-[80%] max-w-[90%] w-[1280px] py-8 lg:py-16">

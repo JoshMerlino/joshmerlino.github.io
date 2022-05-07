@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Toolbar from "../components/Toolbar";
 
 export const path = "/get-a-quote";
@@ -18,9 +18,22 @@ export default function RequestQuote() {
 		};
 	});
 
+	const toolbar = useRef<HTMLDivElement>(null);
+	useEffect(function() {
+		let isMounted = true;
+		(function frame(){
+			if (isMounted) requestAnimationFrame(frame);
+			if (window.scrollY > 0) toolbar.current!.classList.add("shadow-md");
+			else toolbar.current!.classList.remove("shadow-md");
+		}());
+		return () => {
+			isMounted = false;
+		};
+	});
+
 	return (
 		<div className="bg-gray-200 dark:bg-zinc-800 w-full pb-[200px] -mb-[200px]" style={ { minHeight } }>
-			<div className="sticky top-0 min-h-16 left-0 w-full bg-header shadow-md z-[8]">
+			<div className="sticky top-0 min-h-16 left-0 w-full bg-header shadow-md z-[8] transition-shadow" ref={ toolbar }>
 				<Toolbar>Get a Quote</Toolbar>
 			</div>
 			<div className="mt-16">
