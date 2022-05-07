@@ -20,7 +20,7 @@ export default function RequestQuote() {
 
 	return (
 		<div className="bg-gray-200 dark:bg-zinc-800 w-full pb-[200px] -mb-[200px]" style={ { minHeight } }>
-			<div className="sticky top-0 min-h-16 left-0 w-full bg-header shadow-md">
+			<div className="sticky top-0 min-h-16 left-0 w-full bg-header shadow-md z-[8]">
 				<Toolbar>Get a Quote</Toolbar>
 			</div>
 			<div className="mt-16">
