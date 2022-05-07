@@ -27,6 +27,7 @@ export default function Home() {
 			<div className="mx-auto flex font-unisans max-w-full md:max-w-[80%] max-w-[90%] w-[1280px] px-12 z-[4] pt-8 text-neutral-700 dark:text-gray-300 text-2xl">
 				<p className="font-2xl">Design Develop Deploy - I provide full solutions from the sketch stage to production. I&apos;ll design your site to be pixel perfect, secure, and fast. Depending on your needs, I can deploy a full stack solution to my own private cloud service.</p>
 			</div>
+			<Waves/>
 			<PastProjects/>
 			<Waves/>
 			<FavoriteStack/>
