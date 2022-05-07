@@ -44,7 +44,7 @@ export const options: ApexOptions = {
 	tooltip: {
 		x: {
 			formatter: (val: number) => {
-				return `${val} minute${val > 1 ? "s":""} ago`;
+				return `${60 - val} minute${60 - val > 1 ? "s":""} ago`;
 			}
 		}
 	}
@@ -80,7 +80,7 @@ export default function APIRequestMonitor(): JSX.Element | null {
 			.map(n => Math.floor(n * 1000) / 1000)
 			.map((y, key) => ({
 				y,
-				x: state.history!.length - key
+				x: key
 			}))
 	}, {
 		name: "Response time (ms)",
@@ -90,7 +90,7 @@ export default function APIRequestMonitor(): JSX.Element | null {
 			.map(n => Math.floor(n * 1000) / 1000)
 			.map((y, key) => ({
 				y,
-				x: state.history!.length - key
+				x: key
 			}))
 	} ];
 
