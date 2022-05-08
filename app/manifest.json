@@ -13,19 +13,19 @@
         {
             "src": "/favicon.png",
             "sizes": "1024x1024",
-            "type": "image/svg",
+            "type": "image/png",
             "purpose": "any"
         },
         {
             "src": "/splash_icon.png",
-            "sizes": "1024x1024",
+            "sizes": "7000x7000",
             "type": "image/png",
             "purpose": "any"
         },
         {
             "src": "/maskable_icon.png",
-            "sizes": "1024x1024",
-            "type": "image/svg",
+            "sizes": "7000x7000",
+            "type": "image/png",
             "purpose": "maskable"
         }
     ]
