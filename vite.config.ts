@@ -1,13 +1,10 @@
 import react from "@vitejs/plugin-react";
-import { config } from "dotenv";
 import path from "path";
 import { defineConfig } from "vite";
 import htmlPlugin from "vite-plugin-html-config";
 import { VitePWA } from "vite-plugin-pwa";
 import manifest, { base } from "./app/manifest.json";
 import pjson from "./package.json";
-
-config();
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -40,7 +37,8 @@ export default defineConfig({
 			name: manifest.name,
 			version: pjson.version,
 			description: manifest.description,
-			author: pjson.author
+			author: pjson.author,
+			base
 		}
 	},
 	root: "app",
@@ -49,12 +47,6 @@ export default defineConfig({
 		hmr: {
 			protocol: "ws",
 			host: "localhost"
-		},
-		proxy: {
-			"/api": {
-				target: `http://localhost:${process.env.PORT || pjson.webserver.http.port}`,
-				changeOrigin: true
-			}
 		}
 	},
 	build: {

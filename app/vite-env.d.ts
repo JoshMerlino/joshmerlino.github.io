@@ -24,6 +24,11 @@ declare type ApplicationInfo = {
      */
     author: string;
 
+    /**
+     * The base URL of the application.
+     */
+    base: string;
+
 }
 
 declare const APP_MANIFEST: ApplicationInfo;
