@@ -11,7 +11,7 @@
         "preview": "vite preview",
         "dev": "vite --host",
         "build": "tsc -p tsconfig.node.json && tsc && vite build && cp public_html/index.html public_html/404.html",
-        "deploy": "sudo rm -rf public_html && npm run build && sudo rsync -a --info=progress2 public_html/* /mnt/www-data/static/$(basename $PWD)"
+        "lint": "eslint . --ext .ts,.tsx --fix"
     },
     "devDependencies": {
         "@types/node": "^20.2.5",
