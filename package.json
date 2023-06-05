@@ -10,7 +10,7 @@
     "scripts": {
         "preview": "vite preview",
         "dev": "vite --host",
-        "build": "tsc -p tsconfig.node.json && tsc && vite build && cp public_html/index.html public_html/404.html",
+        "build": "tsc && vite build && cp public_html/index.html public_html/404.html",
         "lint": "eslint . --ext .ts,.tsx --fix"
     },
     "devDependencies": {
