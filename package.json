@@ -1,6 +1,6 @@
 {
     "name": "vite-project",
-    "version": "1.0.12",
+    "version": "1.0.13",
     "description": "Create fast single-page progressive-web-apps using PhotonCSS 12, React and TypeScript.",
     "main": "lib/src",
     "types": "lib/src",
@@ -24,7 +24,7 @@
         "autoprefixer": "^10.4.14",
         "chokidar": "^3.5.3",
         "classnames": "^2.3.2",
-        "concurrently": "^8.1.0",
+        "concurrently": "^8.2.0",
         "dayjs": "^1.11.8",
         "eslint": "^8.42.0",
         "eslint-config-airbnb": "^19.0.4",
