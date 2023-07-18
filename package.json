@@ -1,6 +1,6 @@
 {
     "name": "vite-project",
-    "version": "1.0.62",
+    "version": "1.0.63",
     "description": "Create fast single-page progressive-web-apps using PhotonCSS 12, React and TypeScript.",
     "main": "lib/src",
     "types": "lib/src",
@@ -35,7 +35,7 @@
         "lessc": "^1.0.2",
         "nodemon": "^3.0.1",
         "react": "^18.1.0",
-        "react-apexcharts": "^1.4.0",
+        "react-apexcharts": "^1.4.1",
         "react-discord-invite": "^4.0.8",
         "react-dom": "^18.2.0",
         "react-fast-marquee": "^1.6.0",
