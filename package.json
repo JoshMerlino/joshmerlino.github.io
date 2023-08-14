@@ -21,7 +21,7 @@
         "@typescript-eslint/parser": "^5.62.0",
         "@vitejs/plugin-react": "^4.0.4",
         "apexcharts": "^3.41.1",
-        "autoprefixer": "^10.4.14",
+        "autoprefixer": "^10.4.15",
         "chokidar": "^3.5.3",
         "classnames": "^2.3.2",
         "concurrently": "^8.2.0",
