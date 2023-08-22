@@ -24,7 +24,7 @@
         "autoprefixer": "^10.4.15",
         "chokidar": "^3.5.3",
         "classnames": "^2.3.2",
-        "concurrently": "^8.2.0",
+        "concurrently": "^8.2.1",
         "dayjs": "^1.11.9",
         "eslint": "^8.47.0",
         "eslint-config-airbnb": "^19.0.4",
