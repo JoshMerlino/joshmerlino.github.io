@@ -1,6 +1,6 @@
 {
     "name": "vite-project",
-    "version": "1.0.110",
+    "version": "1.0.111",
     "description": "Create fast single-page progressive-web-apps using PhotonCSS 12, React and TypeScript.",
     "main": "lib/src",
     "types": "lib/src",
@@ -21,7 +21,7 @@
         "@typescript-eslint/parser": "^5.62.0",
         "@vitejs/plugin-react": "^4.0.4",
         "apexcharts": "^3.42.0",
-        "autoprefixer": "^10.4.15",
+        "autoprefixer": "^10.4.16",
         "chokidar": "^3.5.3",
         "classnames": "^2.3.2",
         "concurrently": "^8.2.1",
